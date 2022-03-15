@@ -1,4 +1,3 @@
-from sqlalchemy import ForeignKey
 from .db import db
 
 
