@@ -1,4 +1,5 @@
 from .db import db
+from .user_special_interest import user_special_interests
 
 
 class SpecialInterest(db.Model):
@@ -7,7 +8,7 @@ class SpecialInterest(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
 
-    # M-M relationship with users
+    users = db.relationship('User', secondary=user_special_interests, back_populates='special_interests')
 
     def to_dict(self):
         return {

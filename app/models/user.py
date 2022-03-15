@@ -1,4 +1,5 @@
 from .db import db
+from .user_special_interest import user_special_interests
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
@@ -16,6 +17,7 @@ class User(db.Model, UserMixin):
 
     posts = db.relationship('Post', back_populates='user')
     comments = db.relationship('Comment', back_populates='user')
+    special_interests = db.relationship('SpecialInterest', secondary=user_special_interests, back_populates='users')
 
     @property
     def password(self):
