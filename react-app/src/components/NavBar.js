@@ -38,6 +38,11 @@ const NavBar = () => {
             Home
           </NavLink>
         </li>
+        <li>
+          <NavLink to='/posts' exact={true} activeClassName='active'>
+            Info Dump
+          </NavLink>
+        </li>
         {sessionLinks}
       </ul>
     </nav>
