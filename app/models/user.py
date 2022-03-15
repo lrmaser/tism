@@ -14,6 +14,8 @@ class User(db.Model, UserMixin):
     about = db.Column(db.Text)
     created_at = db.Column(db.DateTime, nullable=False)
 
+    posts = db.relationship('Post', back_populates='user')
+
     @property
     def password(self):
         return self.hashed_password
