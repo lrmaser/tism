@@ -1,5 +1,5 @@
 from .db import db
-# import association table here
+from .user_stim_aid import user_stim_aids
 
 
 class StimAid(db.Model):
@@ -13,7 +13,7 @@ class StimAid(db.Model):
     texture_rating = db.Column(db.Integer)
     consistency_rating = db.Column(db.Integer)
 
-    # association table relationship here
+    users = db.relationship('User', secondary=user_stim_aids, back_populates='stim_aids')
 
     def to_dict(self):
         return {
