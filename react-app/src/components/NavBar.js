@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LoginFormModal from './auth/LoginFormModal';
@@ -14,9 +13,7 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
-          {/* <NavLink to='/login' exact={true} activeClassName='active'> */}
           <LoginFormModal />
-          {/* </NavLink> */}
         </li>
         <li>
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
