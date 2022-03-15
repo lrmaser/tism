@@ -15,6 +15,7 @@ class User(db.Model, UserMixin):
     created_at = db.Column(db.DateTime, nullable=False)
 
     posts = db.relationship('Post', back_populates='user')
+    comments = db.relationship('Comment', back_populates='user')
 
     @property
     def password(self):
