@@ -2,7 +2,7 @@ from flask import Blueprint, request
 from flask_login import login_required, current_user
 from datetime import datetime
 from app.models import db, Post
-# import forms
+from app.forms import PostForm
 
 post_routes = Blueprint('posts', __name__)
 
@@ -17,8 +17,22 @@ def posts():
 # POST /posts
 @post_routes.route('', methods=['POST'])
 def new_post():
-    pass
+    form = PostForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
 
+    if form.validate_on_submit():
+        new_post = Post(
+            user_id = current_user.id,
+            title = form.data['title'],
+            body = form.data['body'],
+            created_at = datetime.now(),
+            updated_at = datetime.now()
+        )
+        db.session.add(new_post)
+        db.session.commit()
+        return new_post.to_dict()
+
+    return {'error': 'Failed to submit post'}
 
 # GET /posts/:id
 @post_routes.route('/<int:id>')
