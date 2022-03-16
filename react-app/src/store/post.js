@@ -105,7 +105,8 @@ export const deletePost = (postId) => async (dispatch) => {
     });
 
     if (res.ok) {
-        dispatch(removePost(postId))
+        const post = res.json();
+        dispatch(removePost(post.id))
     }
 
     return res;
