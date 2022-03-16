@@ -127,7 +127,7 @@ const posts = (state = {}, action) => {
             return newState;
         case LOAD_POST:
             newState = { ...state };
-            // TO DO
+            newState[action.post.id] = action.post;
             return newState;
         case UPDATE_POST:
             newState = { ...state };
