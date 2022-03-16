@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import { Modal } from "../../../context/Modal";
 import PostDetail from "./PostDetail";
@@ -9,9 +10,12 @@ const PostDetailModal = ({ post }) => {
 
     return (
         <>
-            <button onClick={() => setShowModal(true)}>
+            <Link to={`/posts/${post.id}`} onClick={(e) => {
+                e.preventDefault()
+                setShowModal(true)
+            }}>
                 <h2>{post.title}</h2>
-            </button>
+            </Link>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <PostDetail postId={post.id} onClose={() => setShowModal(false)}/>
