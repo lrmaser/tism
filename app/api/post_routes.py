@@ -27,7 +27,7 @@ def post(id):
     return post.to_dict()
 
 
-# UPDATE /posts/:id
+# PUT /posts/:id
 @post_routes.route('/<int:id>', methods=['PUT'])
 def edit_post(id):
     pass
