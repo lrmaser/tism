@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { createPost } from '../../../store/post';
 import './PostForm.css';
@@ -18,6 +18,16 @@ const PostForm = () => {
     const updateTitle = (e) => setTitle(e.target.value);
     const updateBody = (e) => setBody(e.target.value);
 
+    useEffect(() => {
+        const validationErrors = [];
+
+        if (title.length > 80) {
+            validationErrors.push('Title must not be more than 80 characters long');
+        }
+
+        setErrors(validationErrors);
+    }, [title]);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -28,10 +38,9 @@ const PostForm = () => {
         };
 
         const newPost = await dispatch(createPost(payload));
+        console.log('--------', newPost)
 
-        if (newPost) {
-            return <Redirect to='/posts' />;
-        }
+        if (newPost.ok) history.push('/posts');
     };
 
     const handleCancel = (e) => {
@@ -51,6 +60,7 @@ const PostForm = () => {
                 value={title}
                 onChange={updateTitle}
                 placeholder='Title of Post'
+                required
             />
             <input
                 type='textarea'
@@ -58,6 +68,7 @@ const PostForm = () => {
                 value={body}
                 onChange={updateBody}
                 placeholder='Write your post'
+                required
             />
             <button type='submit' disabled={errors.length > 0}>
                 Post
