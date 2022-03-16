@@ -18,7 +18,7 @@ const PostDetailModal = ({ post }) => {
             </Link>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <PostDetail postId={post.id} onClose={() => setShowModal(false)}/>
+                    <PostDetail post={post} onClose={() => setShowModal(false)}/>
                 </Modal>
             )}
         </>

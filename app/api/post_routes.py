@@ -2,7 +2,7 @@ from flask import Blueprint, request
 from flask_login import login_required, current_user
 from datetime import datetime
 from app.models import db, Post
-from app.forms import PostForm
+from app.forms import PostForm, EditPostForm
 
 post_routes = Blueprint('posts', __name__)
 
@@ -28,8 +28,10 @@ def new_post():
             created_at = datetime.now(),
             updated_at = datetime.now()
         )
+
         db.session.add(new_post)
         db.session.commit()
+
         return new_post.to_dict()
 
     return {'error': 'Failed to submit post'}
@@ -44,7 +46,21 @@ def post(id):
 # PUT /posts/:id
 @post_routes.route('/<int:id>', methods=['PUT'])
 def edit_post(id):
-    pass
+    form = EditPostForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        edited_post = Post.query.get(id)
+
+        edited_post.title = form.data['title']
+        edited_post.body = form.data['body']
+        edited_post.updated_at = datetime.now()
+
+        db.session.commit()
+
+        return edited_post.to_dict()
+
+    return {'error': 'Failed to update post'}
 
 
 # DELETE /posts/:id

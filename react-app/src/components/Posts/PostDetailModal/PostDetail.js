@@ -1,24 +1,43 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { getPost } from "../../../store/post";
+import EditPostForm from "../EditPostForm";
 import './PostDetailModal.css';
 
-const PostDetail = ({ onClose, postId }) => {
+const PostDetail = ({ onClose, post }) => {
     const dispatch = useDispatch();
 
-    const post = useSelector(state => state.posts[postId]);
+    const user = useSelector(state => state.session.user);
+    // const post = useSelector(state => state.posts[post.id]);
+
+    const [ showEditForm, setShowEditForm ] = useState(false);
 
     useEffect(() => {
-        dispatch(getPost(postId));
-    }, [dispatch, postId]);
+        dispatch(getPost(post.id));
+    }, [dispatch, post.id]);
+
+    let postMenu;
+    if (post.user_id === user.id) {
+        postMenu = (
+            <button type='button' onClick={() => setShowEditForm(true)}>Edit Post</button>
+        );
+    }
 
     return (
         <main>
             <div>
-                <h1>{post?.title}</h1>
-                <p>{post?.body}</p>
+                {showEditForm ?
+                    <EditPostForm post={post} />
+                    :
+                    <>
+                        <h1>{post?.title}</h1>
+                        <p>{post?.body}</p>
+                        {postMenu}
+                    </>
+                }
             </div>
+            <div>Comments</div>
         </main>
     );
 };
