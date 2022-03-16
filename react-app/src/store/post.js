@@ -45,7 +45,7 @@ export const getPosts = () => async (dispatch) => {
 
     if (res.ok) {
         const posts = await res.json();
-        dispatch(loadPosts(posts));
+        dispatch(loadPosts(posts.posts));
     }
 
     return res;
@@ -117,7 +117,9 @@ const posts = (state = {}, action) => {
     switch (action.type) {
         case LOAD_POSTS:
             newState = { ...state };
-            // TO DO
+            action.posts.forEach(post => {
+                newState[post.id] = post;
+            });
             return newState;
         case ADD_POST:
             newState = { ...state };
