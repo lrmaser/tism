@@ -9,7 +9,6 @@ const PostDetail = ({ onClose, post }) => {
     const dispatch = useDispatch();
 
     const user = useSelector(state => state.session.user);
-    // const post = useSelector(state => state.posts[post.id]);
 
     const [ showEditForm, setShowEditForm ] = useState(false);
 
