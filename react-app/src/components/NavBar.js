@@ -13,9 +13,16 @@ const NavBar = () => {
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <li>
-        <LogoutButton />
-      </li>
+      <>
+        <li>
+          <NavLink to='/posts/new' exact={true} activeClassName='active'>
+            New Post
+          </NavLink>
+        </li>
+        <li>
+          <LogoutButton />
+        </li>
+      </>
     );
   } else {
     sessionLinks = (
