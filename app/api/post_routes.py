@@ -16,6 +16,7 @@ def posts():
 
 # POST /posts
 @post_routes.route('', methods=['POST'])
+@login_required
 def new_post():
     form = PostForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -45,6 +46,7 @@ def post(id):
 
 # PUT /posts/:id
 @post_routes.route('/<int:id>', methods=['PUT'])
+@login_required
 def edit_post(id):
     form = EditPostForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -65,6 +67,7 @@ def edit_post(id):
 
 # DELETE /posts/:id
 @post_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
 def delete_post(id):
     post = Post.query.get(id)
     db.session.delete(post)
