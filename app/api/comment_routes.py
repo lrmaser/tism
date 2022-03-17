@@ -2,7 +2,7 @@ from flask import Blueprint, request
 from flask_login import login_required, current_user
 from datetime import datetime
 from app.models import db, Post, Comment
-from app.forms import CommentForm
+from app.forms import CommentForm, EditCommentForm
 
 comment_routes = Blueprint('comments', __name__)
 
@@ -42,17 +42,18 @@ def new_comment():
 @comment_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def edit_comment(id):
-    # form =
-    # form['csrf_token'].data = request.cookies['csrf_token']
+    form = EditCommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
 
-    # if form.validate_on_submit():
-    #     edited_comment = Comment.query.get(id)
+    if form.validate_on_submit():
+        edited_comment = Comment.query.get(id)
 
-    #     edited_comment.
+        edited_comment.body = form.data['body']
+        edited_comment.updated_at = datetime.now()
 
-    #     db.session.commit()
+        db.session.commit()
 
-    #     return edited_comment.to_dict()
+        return edited_comment.to_dict()
 
     return {'error': 'Failed to update comment'}
 
