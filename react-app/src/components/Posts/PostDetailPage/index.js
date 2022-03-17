@@ -5,16 +5,18 @@ import { useHistory, useParams } from "react-router-dom";
 import { getPost, deletePost } from "../../../store/post";
 import EditPostModal from "../EditPostForm";
 import CommentFormModal from "../../Comments/CommentForm";
+import CommentsList from "../../Comments/CommentsList";
 import './PostDetailPage.css';
 
 const PostDetailPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
-    const postId = +id;
 
     const user = useSelector(state => state.session.user);
     const post = useSelector(state => state.posts[id]);
+    const commentsObj = useSelector(state => state.comments);
+    const comments = Object.values(commentsObj);
 
     useEffect(() => {
         dispatch(getPost(id));
@@ -53,6 +55,7 @@ const PostDetailPage = () => {
             <div>
                 <CommentFormModal />
             </div>
+            <CommentsList />
         </main>
     );
 };

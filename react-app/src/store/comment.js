@@ -32,7 +32,6 @@ const removeComment = (commentId) => {
 };
 
 // GET /api/comments
-// Refactor to include post id somehow
 export const getComments = () => async (dispatch) => {
     const res = await fetch('/api/comments');
 
