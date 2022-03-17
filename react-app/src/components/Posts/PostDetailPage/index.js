@@ -30,8 +30,8 @@ const PostDetailPage = () => {
         }
     };
 
-    let postMenu;
-    if (post?.user_id === user.id) {
+    let postMenu = null;
+    if (user && post?.user_id === user.id) {
         postMenu = (
             <div>
                 <EditPostModal />
