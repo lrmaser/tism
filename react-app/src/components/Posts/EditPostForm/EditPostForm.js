@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
-import { createPost } from '../../../store/post';
-import './PostForm.css';
+import { editPost } from '../../../store/post';
+import './EditPostForm.css';
 
-const PostForm = () => {
+const EditPostForm = ({ onClose }) => {
     const dispatch = useDispatch();
     const history = useHistory();
+    const { id } = useParams();
 
-    const user = useSelector(state => state.session.user);
+    const post = useSelector(state => state.posts[id]);
 
     const [ errors, setErrors ] = useState([]);
-    const [ title, setTitle ] = useState('');
-    const [ body, setBody ] = useState('');
+    const [ title, setTitle ] = useState(post?.title);
+    const [ body, setBody ] = useState(post?.body);
 
     const updateTitle = (e) => setTitle(e.target.value);
     const updateBody = (e) => setBody(e.target.value);
@@ -21,7 +22,7 @@ const PostForm = () => {
     useEffect(() => {
         const validationErrors = [];
 
-        if (title.length > 80) {
+        if (title?.length > 80) {
             validationErrors.push('Title must not be more than 80 characters long');
         }
 
@@ -32,24 +33,20 @@ const PostForm = () => {
         e.preventDefault();
 
         const payload = {
-            user_id: user.id,
+            ...post,
             title,
             body
         };
 
-        const newPost = await dispatch(createPost(payload));
-
-        if (newPost.ok) history.push('/posts');
-    };
-
-    const handleCancel = (e) => {
-        e.preventDefault();
-        history.push('/posts');
+        const editedPost = await dispatch(editPost(payload));
+        if (editedPost) {
+            history.push(`/posts/${post.id}`);
+            onClose(false);
+        };
     };
 
     return (
         <form onSubmit={handleSubmit}>
-            <h1>New Info Dump</h1>
             <ul>
                 {errors.map((error, ind) => <li key={ind}>{error}</li>)}
             </ul>
@@ -72,11 +69,11 @@ const PostForm = () => {
             <button type='submit' disabled={errors.length > 0 || !title || !body}>
                 Post
             </button>
-            <button type='button' onClick={handleCancel}>
+            <button type='button' onClick={onClose}>
                 Cancel
             </button>
         </form>
     );
 };
 
-export default PostForm;
+export default EditPostForm;

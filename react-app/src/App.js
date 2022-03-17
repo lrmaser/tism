@@ -9,6 +9,7 @@ import NavBar from './components/NavBar';
 import User from './components/User';
 import PostForm from './components/Posts/PostForm';
 import PostsList from './components/Posts/PostsList';
+import PostDetailPage from './components/Posts/PostDetailPage';
 import { authenticate } from './store/session';
 
 function App() {
@@ -50,6 +51,9 @@ function App() {
         </Route>
         <Route path='/posts/new' exact={true} >
           <PostForm />
+        </Route>
+        <Route path='/posts/:id' exact={true} >
+          <PostDetailPage />
         </Route>
       </Switch>
     </BrowserRouter>

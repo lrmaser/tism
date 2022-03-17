@@ -74,7 +74,7 @@ export const getPost = (postId) => async (dispatch) => {
     const res = await fetch(`/posts/${postId}`);
 
     if (res.ok) {
-        const post = res.json();
+        const post = await res.json();
         dispatch(loadPost(post));
     }
 
@@ -92,7 +92,7 @@ export const editPost = (post) => async (dispatch) => {
     });
 
     if (res.ok) {
-        const editedPost = res.json();
+        const editedPost = await res.json();
         dispatch(updatePost(editedPost));
         return editedPost;
     }
@@ -105,8 +105,7 @@ export const deletePost = (postId) => async (dispatch) => {
     });
 
     if (res.ok) {
-        const post = res.json();
-        dispatch(removePost(post.id))
+        await dispatch(removePost(postId))
     }
 
     return res;
@@ -127,7 +126,7 @@ const posts = (state = {}, action) => {
             return newState;
         case LOAD_POST:
             newState = { ...state };
-            // TO DO
+            newState[action.post.id] = action.post;
             return newState;
         case UPDATE_POST:
             newState = { ...state };
@@ -135,7 +134,7 @@ const posts = (state = {}, action) => {
             return newState;
         case REMOVE_POST:
             newState = { ...state };
-            // TO DO
+            delete newState[action.postId]
             return newState;
         default:
             return state;
