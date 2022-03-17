@@ -105,8 +105,7 @@ export const deletePost = (postId) => async (dispatch) => {
     });
 
     if (res.ok) {
-        const post = await res.json();
-        dispatch(removePost(post.id))
+        await dispatch(removePost(postId))
     }
 
     return res;
@@ -135,7 +134,7 @@ const posts = (state = {}, action) => {
             return newState;
         case REMOVE_POST:
             newState = { ...state };
-            // TO DO
+            delete newState[action.postId]
             return newState;
         default:
             return state;

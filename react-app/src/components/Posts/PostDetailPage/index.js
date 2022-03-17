@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
-import { getPost } from "../../../store/post";
+import { getPost, deletePost } from "../../../store/post";
 import EditPostModal from "../EditPostForm";
 import './PostDetailPage.css';
 
 const PostDetailPage = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const { id } = useParams();
     const postId = +id;
 
@@ -18,12 +19,18 @@ const PostDetailPage = () => {
         dispatch(getPost(id));
     }, [dispatch, id]);
 
+    const handleDelete = async (e) => {
+        e.preventDefault();
+        await dispatch(deletePost(id));
+        history.push('/posts');
+    };
+
     let postMenu;
     if (post?.user_id === user.id) {
         postMenu = (
             <div>
                 <EditPostModal />
-                <button type='button'>Delete Post</button>
+                <button onClick={handleDelete}>Delete Post</button>
             </div>
         );
     }
