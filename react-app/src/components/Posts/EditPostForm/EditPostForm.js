@@ -45,11 +45,6 @@ const EditPostForm = ({ onClose }) => {
         };
     };
 
-    // const handleCancel = (e) => {
-    //     e.preventDefault();
-    //     history.push(`/posts/${post.id}`);
-    // };
-
     return (
         <form onSubmit={handleSubmit}>
             <ul>
