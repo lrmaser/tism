@@ -2,7 +2,7 @@ from flask import Blueprint, request
 from flask_login import login_required, current_user
 from datetime import datetime
 from app.models import db, Post, Comment
-# import forms here
+from app.forms import CommentForm
 
 comment_routes = Blueprint('comments', __name__)
 
@@ -18,16 +18,22 @@ def comments(post_id): # Trying with post id, otherwise will have to do frontend
 @comment_routes.route('', methods=['POST'])
 @login_required
 def new_comment():
-    # form =
-    # form['csrf_token'].data = request.cookies['csrf_token']
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
 
-    # if form.validate_on_submit():
-    #     new_comment = Comment()
+    if form.validate_on_submit():
+        new_comment = Comment(
+            user_id = current_user.id,
+            post_id = form.data['post_id'],
+            body = form.data['body'],
+            created_at = datetime.now(),
+            updated_at = datetime.now()
+        )
 
-    #     db.session.add(new_comment)
-    #     db.session.commit()
+        db.session.add(new_comment)
+        db.session.commit()
 
-    #     return new_comment.to_dict()
+        return new_comment.to_dict()
 
     return {'error': 'Failed to submit comment'}
 
