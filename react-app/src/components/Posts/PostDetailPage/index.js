@@ -4,6 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 
 import { getPost, deletePost } from "../../../store/post";
 import EditPostModal from "../EditPostForm";
+import CommentFormModal from "../../Comments/CommentForm";
 import './PostDetailPage.css';
 
 const PostDetailPage = () => {
@@ -49,7 +50,9 @@ const PostDetailPage = () => {
                 <p>{post?.body}</p>
             </div>
             {postMenu}
-            <div>Comments</div>
+            <div>
+                <CommentFormModal />
+            </div>
         </main>
     );
 };

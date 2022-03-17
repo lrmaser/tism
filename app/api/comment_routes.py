@@ -22,6 +22,7 @@ def new_comment():
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
+        print('-------------------------', form.data)
         new_comment = Comment(
             user_id = current_user.id,
             post_id = form.data['post_id'],
@@ -29,6 +30,7 @@ def new_comment():
             created_at = datetime.now(),
             updated_at = datetime.now()
         )
+        print('111111111111111111111111', new_comment)
 
         db.session.add(new_comment)
         db.session.commit()

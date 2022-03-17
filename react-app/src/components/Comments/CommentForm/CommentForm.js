@@ -21,16 +21,18 @@ const CommentForm = ({ onClose }) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        // const payload = {};
+        const payload = {
+            user_id: user.id,
+            post_id: post.id,
+            body
+        };
 
-        // const newComment = await dispatch(createComment(payload));
+        const newComment = await dispatch(createComment(payload));
 
-        // if (newComment.ok) history.push();
-    };
-
-    const handleCancel = (e) => {
-        e.preventDefault();
-        // history.push();
+        if (newComment.ok) {
+            history.push(`/posts/${post.id}`);
+            onClose(false);
+        }
     };
 
     return (
@@ -49,7 +51,7 @@ const CommentForm = ({ onClose }) => {
             <button type='submit' disabled={errors.length > 0 || !body}>
                 Comment
             </button>
-            <button type='button' onClick={handleCancel}>
+            <button type='button' onClick={onClose}>
                 Cancel
             </button>
         </form>
