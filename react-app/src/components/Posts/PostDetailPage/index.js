@@ -27,6 +27,16 @@ const PostDetailPage = () => {
     //     );
     // }
 
+    let postMenu;
+    if (post?.user_id === user.id) {
+        postMenu = (
+            <div>
+                <button type='button'>Edit Post</button>
+                <button type='button'>Delete Post</button>
+            </div>
+        );
+    }
+
     if (!post) return null;
 
     return (
@@ -35,6 +45,7 @@ const PostDetailPage = () => {
                 <h1>{post?.title}</h1>
                 <p>{post?.body}</p>
             </div>
+            {postMenu}
 
             {/* <div>
                 {showEditForm ?
