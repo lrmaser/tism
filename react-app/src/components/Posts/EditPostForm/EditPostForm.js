@@ -39,6 +39,7 @@ const EditPostForm = ({ onClose }) => {
         };
 
         const editedPost = await dispatch(editPost(payload));
+
         if (editedPost) {
             history.push(`/posts/${post.id}`);
             onClose(false);

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
 
 import { getComments } from '../../../store/comment';
+import EditCommentModal from '../EditCommentForm';
 import './CommentsList.css';
 
 const CommentsList = () => {
@@ -20,9 +21,16 @@ const CommentsList = () => {
     return (
         <div>
             {comments?.map(comment => {
-                if (comment.post_id === +id) return (
-                    <div key={comment.id}>{comment.body}</div>
-                )
+                if (comment.post_id === +id) {
+                    return (
+                        <div>
+                            <div key={comment.id}>{comment.body}</div>
+                            {user?.id === comment.user_id && (
+                                <EditCommentModal commentId={comment.id} />
+                            )}
+                        </div>
+                    )
+                } else return null;
         })}
         </div>
     );
