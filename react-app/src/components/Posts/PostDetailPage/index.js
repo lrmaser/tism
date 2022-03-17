@@ -21,8 +21,13 @@ const PostDetailPage = () => {
 
     const handleDelete = async (e) => {
         e.preventDefault();
-        await dispatch(deletePost(id));
-        history.push('/posts');
+
+        if (window.confirm("Are you sure you'd like to delete your post?")) {
+            await dispatch(deletePost(id));
+            history.push('/posts');
+        } else {
+            history.push(`/posts/${id}`);
+        }
     };
 
     let postMenu;
