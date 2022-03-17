@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
-import { getComments } from '../../../store/comment';
+import { getComments, deleteComment } from '../../../store/comment';
 import EditCommentModal from '../EditCommentForm';
 import './CommentsList.css';
 
 const CommentsList = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const { id } = useParams();
 
     const user = useSelector(state => state.session.user);
@@ -18,6 +19,12 @@ const CommentsList = () => {
         dispatch(getComments());
     }, [dispatch]);
 
+    const handleDeleteComment = (e, commentId) => {
+        e.preventDefault();
+        dispatch(deleteComment(commentId));
+        history.push(`/posts/${id}`);
+    };
+
     return (
         <div>
             {comments?.map(comment => {
@@ -26,7 +33,10 @@ const CommentsList = () => {
                         <div>
                             <div key={comment.id}>{comment.body}</div>
                             {user?.id === comment.user_id && (
-                                <EditCommentModal commentId={comment.id} />
+                                <div>
+                                    <EditCommentModal commentId={comment.id} />
+                                    <button onClick={(e) => handleDeleteComment(e, comment.id)}>Delete Comment</button>
+                                </div>
                             )}
                         </div>
                     )
