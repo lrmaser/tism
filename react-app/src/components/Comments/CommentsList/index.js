@@ -8,7 +8,6 @@ import './CommentsList.css';
 
 const CommentsList = () => {
     const dispatch = useDispatch();
-    const history = useHistory();
     const { id } = useParams();
 
     const user = useSelector(state => state.session.user);
@@ -19,10 +18,12 @@ const CommentsList = () => {
         dispatch(getComments());
     }, [dispatch]);
 
-    const handleDeleteComment = (e, commentId) => {
+    const handleDelete = async (e, commentId) => {
         e.preventDefault();
-        dispatch(deleteComment(commentId));
-        history.push(`/posts/${id}`);
+
+        if (window.confirm("Are you sure you'd like to delete your comment?")) {
+            await dispatch(deleteComment(commentId));
+        }
     };
 
     return (
@@ -35,7 +36,7 @@ const CommentsList = () => {
                             {user?.id === comment.user_id && (
                                 <div>
                                     <EditCommentModal commentId={comment.id} />
-                                    <button onClick={(e) => handleDeleteComment(e, comment.id)}>Delete Comment</button>
+                                    <button onClick={(e) => handleDelete(e, comment.id)}>Delete Comment</button>
                                 </div>
                             )}
                         </div>
