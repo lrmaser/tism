@@ -71,7 +71,7 @@ const EditPostForm = ({ onClose }) => {
                 placeholder='Write your post'
                 required
             />
-            <button type='submit' disabled={errors.length > 0}>
+            <button type='submit' disabled={errors.length > 0 || !title || !body}>
                 Post
             </button>
             <button type='button' onClick={onClose}>
