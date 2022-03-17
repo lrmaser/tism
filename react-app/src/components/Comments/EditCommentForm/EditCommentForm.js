@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from 'react-router-dom';
 
@@ -12,7 +12,6 @@ const EditCommentForm = ({ onClose, commentId }) => {
 
     const comment = useSelector(state => state.comments[commentId]);
 
-    const [ errors, setErrors ] = useState([]);
     const [ body, setBody ] = useState(comment?.body);
 
     const updateBody = (e) => setBody(e.target.value);
@@ -35,9 +34,6 @@ const EditCommentForm = ({ onClose, commentId }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <ul>
-                {errors.map((error, ind) => <li key={ind}>{error}</li>)}
-            </ul>
             <input
                 type='textarea'
                 name='body'
@@ -46,7 +42,7 @@ const EditCommentForm = ({ onClose, commentId }) => {
                 placeholder='Write your comment'
                 required
             />
-            <button type='submit' disabled={errors.length > 0 || !body}>
+            <button type='submit' disabled={!body}>
                 Comment
             </button>
             <button type='button' onClick={onClose}>

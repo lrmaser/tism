@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 
@@ -15,8 +15,6 @@ const PostDetailPage = () => {
 
     const user = useSelector(state => state.session.user);
     const post = useSelector(state => state.posts[id]);
-    const commentsObj = useSelector(state => state.comments);
-    const comments = Object.values(commentsObj);
 
     useEffect(() => {
         dispatch(getPost(id));
