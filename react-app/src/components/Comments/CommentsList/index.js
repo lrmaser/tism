@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { getComments, deleteComment } from '../../../store/comment';
 import EditCommentModal from '../EditCommentForm';
