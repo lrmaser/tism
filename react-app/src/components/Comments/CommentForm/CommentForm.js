@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 
@@ -13,7 +13,6 @@ const CommentForm = ({ onClose }) => {
     const user = useSelector(state => state.session.user);
     const post = useSelector(state => state.posts[id]);
 
-    const [ errors, setErrors ] = useState([]);
     const [ body, setBody ] = useState('');
 
     const updateBody = (e) => setBody(e.target.value);
@@ -21,23 +20,22 @@ const CommentForm = ({ onClose }) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        // const payload = {};
+        const payload = {
+            user_id: user.id,
+            post_id: post.id,
+            body
+        };
 
-        // const newComment = await dispatch(createComment(payload));
+        const newComment = await dispatch(createComment(payload));
 
-        // if (newComment.ok) history.push();
-    };
-
-    const handleCancel = (e) => {
-        e.preventDefault();
-        // history.push();
+        if (newComment.ok) {
+            history.push(`/posts/${post.id}`);
+            onClose(false);
+        }
     };
 
     return (
         <form onSubmit={handleSubmit}>
-            <ul>
-                {errors.map((error, ind) => <li key={ind}>{error}</li>)}
-            </ul>
             <input
                 type='textarea'
                 name='body'
@@ -46,10 +44,10 @@ const CommentForm = ({ onClose }) => {
                 placeholder='Write your comment'
                 required
             />
-            <button type='submit' disabled={errors.length > 0 || !body}>
+            <button type='submit' disabled={!body}>
                 Comment
             </button>
-            <button type='button' onClick={handleCancel}>
+            <button type='button' onClick={onClose}>
                 Cancel
             </button>
         </form>

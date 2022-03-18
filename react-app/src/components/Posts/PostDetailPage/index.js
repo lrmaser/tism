@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 
 import { getPost, deletePost } from "../../../store/post";
 import EditPostModal from "../EditPostForm";
+import CommentFormModal from "../../Comments/CommentForm";
+import CommentsList from "../../Comments/CommentsList";
 import './PostDetailPage.css';
 
 const PostDetailPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
-    const postId = +id;
 
     const user = useSelector(state => state.session.user);
     const post = useSelector(state => state.posts[id]);
@@ -22,11 +23,9 @@ const PostDetailPage = () => {
     const handleDelete = async (e) => {
         e.preventDefault();
 
-        if (window.confirm("Are you sure you'd like to delete your post?")) {
+        if (window.confirm("Are you sure you'd like to delete your post? If there are any comments, they will also be erased.")) {
             await dispatch(deletePost(id));
             history.push('/posts');
-        } else {
-            history.push(`/posts/${id}`);
         }
     };
 
@@ -49,7 +48,10 @@ const PostDetailPage = () => {
                 <p>{post?.body}</p>
             </div>
             {postMenu}
-            <div>Comments</div>
+            <div>
+                <CommentFormModal />
+            </div>
+            <CommentsList />
         </main>
     );
 };

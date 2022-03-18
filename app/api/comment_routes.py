@@ -9,8 +9,8 @@ comment_routes = Blueprint('comments', __name__)
 
 # GET /api/comments
 @comment_routes.route('')
-def comments(post_id): # Trying with post id, otherwise will have to do frontend
-    comments = Comment.query.filter(Post.id == post_id).all()
+def comments():
+    comments = Comment.query.all()
     return {'comments': [comment.to_dict() for comment in comments]}
 
 
