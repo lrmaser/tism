@@ -29,7 +29,31 @@
 }
 
 .nav-left li {
+    align-items: center;
+    display: flex;
     padding-right: 20px;
+}
+
+.nav-home {
+    align-items: center;
+    display: flex;
+    font-size: 30px;
+}
+
+.fa-infinity {
+    background-image: linear-gradient(
+        to bottom right,
+        red,
+        #f06d06,
+        rgb(255, 255, 0),
+        green,
+        blue,
+        indigo
+    );
+    background-clip: text;
+    color: transparent;
+    font-size: 25px;
+    padding-right: 5px;
 }
 
 .nav-right {

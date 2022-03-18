@@ -20,6 +20,9 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
+          Profile
+        </li>
+        <li>
           <LogoutButton />
         </li>
       </div>
@@ -43,7 +46,7 @@ const NavBar = () => {
         <div className='nav-left'>
           <li>
             <NavLink to='/' exact={true} activeClassName='active-home' className='nav-home'>
-              Home
+              <i class="fas fa-infinity"></i> tism
             </NavLink>
           </li>
           <li>
