@@ -31,7 +31,7 @@ const CommentsList = () => {
             {comments?.map(comment => {
                 if (comment.post_id === +id) {
                     return (
-                        <div>
+                        <div key={comment.id}>
                             <div key={comment.id}>{comment.body}</div>
                             {user?.id === comment.user_id && (
                                 <div>
