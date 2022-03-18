@@ -23,7 +23,7 @@ const PostDetailPage = () => {
     const handleDelete = async (e) => {
         e.preventDefault();
 
-        if (window.confirm("Are you sure you'd like to delete your post? If there are any comments, they will also be erased.")) {
+        if (window.confirm("Are you sure you'd like to delete your post? Any comments will also be removed.")) {
             await dispatch(deletePost(id));
             history.push('/posts');
         }

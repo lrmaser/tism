@@ -39,9 +39,9 @@ const removePost = (postId) => {
     };
 };
 
-// GET /posts
+// GET /api/posts
 export const getPosts = () => async (dispatch) => {
-    const res = await fetch('/posts');
+    const res = await fetch('/api/posts');
 
     if (res.ok) {
         const posts = await res.json();
@@ -51,9 +51,9 @@ export const getPosts = () => async (dispatch) => {
     return res;
 };
 
-// POST /posts
+// POST /api/posts
 export const createPost = (newPost) => async (dispatch) => {
-    const res = await fetch('/posts', {
+    const res = await fetch('/api/posts', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -69,9 +69,9 @@ export const createPost = (newPost) => async (dispatch) => {
     return res;
 };
 
-// GET /posts/:id
+// GET /api/posts/:id
 export const getPost = (postId) => async (dispatch) => {
-    const res = await fetch(`/posts/${postId}`);
+    const res = await fetch(`/api/posts/${postId}`);
 
     if (res.ok) {
         const post = await res.json();
@@ -81,9 +81,9 @@ export const getPost = (postId) => async (dispatch) => {
     return res;
 };
 
-// PUT /posts/:id
+// PUT /api/posts/:id
 export const editPost = (post) => async (dispatch) => {
-    const res = await fetch(`/posts/${post.id}`, {
+    const res = await fetch(`/api/posts/${post.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -98,9 +98,9 @@ export const editPost = (post) => async (dispatch) => {
     }
 };
 
-// DELETE /posts/:id
+// DELETE /api/posts/:id
 export const deletePost = (postId) => async (dispatch) => {
-    const res = await fetch(`/posts/${postId}`, {
+    const res = await fetch(`/api/posts/${postId}`, {
         method: 'DELETE'
     });
 

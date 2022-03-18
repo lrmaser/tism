@@ -7,14 +7,14 @@ from app.forms import PostForm, EditPostForm
 post_routes = Blueprint('posts', __name__)
 
 
-# GET /posts
+# GET /api/posts
 @post_routes.route('')
 def posts():
     posts = Post.query.all()
     return {'posts': [post.to_dict() for post in posts]}
 
 
-# POST /posts
+# POST /api/posts
 @post_routes.route('', methods=['POST'])
 @login_required
 def new_post():
@@ -37,14 +37,14 @@ def new_post():
 
     return {'error': 'Failed to submit post'}
 
-# GET /posts/:id
+# GET /api/posts/:id
 @post_routes.route('/<int:id>')
 def post(id):
     post = Post.query.get(id)
     return post.to_dict()
 
 
-# PUT /posts/:id
+# PUT /api/posts/:id
 @post_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def edit_post(id):
@@ -65,7 +65,7 @@ def edit_post(id):
     return {'error': 'Failed to update post'}
 
 
-# DELETE /posts/:id
+# DELETE /api/posts/:id
 @post_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_post(id):
