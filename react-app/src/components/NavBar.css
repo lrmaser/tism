@@ -1,0 +1,41 @@
+.nav-bar {
+    box-shadow: 0 0 1px 1px rgb(33 41 63 / 10%);
+    height: 75px;
+}
+
+.nav-ul {
+    align-items: center;
+    color: #4b587c;
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0 40px 20px 40px;
+}
+
+.nav-ul a {
+    color: #4b587c;
+    padding: 8px;
+    text-decoration: none;
+}
+
+.nav-ul a:not(.nav-home):hover {
+    color: #f64900;
+}
+
+.nav-left {
+    display: flex;
+}
+
+.nav-left li {
+    padding-right: 20px;
+}
+
+.nav-right {
+    display: flex;
+}
+
+.nav-right li {
+    padding-left: 20px;
+}
