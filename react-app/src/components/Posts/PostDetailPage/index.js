@@ -26,8 +26,6 @@ const PostDetailPage = () => {
         if (window.confirm("Are you sure you'd like to delete your post?")) {
             await dispatch(deletePost(id));
             history.push('/posts');
-        } else {
-            history.push(`/posts/${id}`);
         }
     };
 
