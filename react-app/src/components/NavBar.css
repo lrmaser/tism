@@ -57,9 +57,27 @@
 }
 
 .nav-right {
+    align-items: center;
     display: flex;
 }
 
 .nav-right li {
     padding-left: 20px;
+}
+
+.nav-login {
+    background-color: white;
+    border: 0;
+    color: #4b587c;
+    cursor: pointer;
+}
+
+.nav-signup {
+    background-color: #e12e0d;
+    border: 0;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    height: 40px;
+    padding: 8px 16px;
 }
