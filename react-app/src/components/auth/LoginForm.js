@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+
 import { login } from '../../store/session';
+import './auth.css';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -40,15 +42,26 @@ const LoginForm = () => {
     return <Redirect to='/' />;
   }
 
-  return (
-    <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+  let errorBox;
+  if (errors.length > 0) {
+    errorBox = (
+      <div className='login-errors'>
+        <p>The following error(s) occurred:</p>
+        <ul>
+          {errors.map((error, ind) => (
+            <li key={ind}>{error}</li>
+          ))}
+        </ul>
       </div>
-      <div>
-        <label htmlFor='email'>Email</label>
+    );
+  }
+
+  return (
+    <form className='login-form' onSubmit={onLogin}>
+      {errorBox}
+      <div className='login-form-header'>Login</div>
+      <div className='login-form-email'>
+        <label htmlFor='email'>Email </label>
         <input
           name='email'
           type='text'
@@ -58,8 +71,8 @@ const LoginForm = () => {
           required
         />
       </div>
-      <div>
-        <label htmlFor='password'>Password</label>
+      <div className='login-form-password'>
+        <label htmlFor='password'>Password </label>
         <input
           name='password'
           type='password'
@@ -68,6 +81,8 @@ const LoginForm = () => {
           onChange={updatePassword}
           required
         />
+      </div>
+      <div className='login-form-buttons'>
         <button type='submit'>Login</button>
         <button type='button' onClick={demoUserLogin}>Demo User</button>
       </div>

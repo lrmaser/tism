@@ -46,7 +46,7 @@ const NavBar = () => {
         <div className='nav-left'>
           <li>
             <NavLink to='/' exact={true} activeClassName='active-home' className='nav-home'>
-              <i class="fas fa-infinity"></i> tism
+              <i className="fas fa-infinity"></i> tism
             </NavLink>
           </li>
           <li>
