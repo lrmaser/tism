@@ -1,5 +1,4 @@
 from .db import db
-from .user_special_interest import user_special_interests
 from .user_stim_aid import user_stim_aids
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
@@ -18,7 +17,8 @@ class User(db.Model, UserMixin):
 
     posts = db.relationship('Post', back_populates='user')
     comments = db.relationship('Comment', back_populates='user')
-    special_interests = db.relationship('SpecialInterest', secondary=user_special_interests, back_populates='users')
+    special_interests = db.relationship('SpecialInterest', back_populates='user')
+    owned_stim_aids = db.relationship('StimAid', back_populates='owner')
     stim_aids = db.relationship('StimAid', secondary=user_stim_aids, back_populates='users')
 
     @property
