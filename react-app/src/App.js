@@ -6,7 +6,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 // import UsersList from './components/UsersList';
-import User from './components/User';
+// import User from './components/User';
 import PostForm from './components/Posts/PostForm';
 import PostsList from './components/Posts/PostsList';
 import PostDetailPage from './components/Posts/PostDetailPage';
@@ -40,9 +40,9 @@ function App() {
         {/* <ProtectedRoute path='/users' exact={true} >
           <UsersList />
         </ProtectedRoute> */}
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        {/* <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>
         </Route>
