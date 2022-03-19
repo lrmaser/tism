@@ -6,6 +6,7 @@ class StimAid(db.Model):
     __tablename__ = 'stim_aids'
 
     id = db.Column(db.Integer, primary_key=True)
+    owner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     name = db.Column(db.String(50), nullable=False)
     description = db.Column(db.Text, nullable=False)
     noise_rating = db.Column(db.Integer)
@@ -13,6 +14,7 @@ class StimAid(db.Model):
     texture_rating = db.Column(db.Integer)
     consistency_rating = db.Column(db.Integer)
 
+    owner = db.relationship('User', back_populates='owned_stim_aids')
     users = db.relationship('User', secondary=user_stim_aids, back_populates='stim_aids')
 
     def to_dict(self):

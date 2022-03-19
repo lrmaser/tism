@@ -1,7 +1,7 @@
 """create user stim aids association table
 
 Revision ID: 21d9ebfb9dd7
-Revises: b10ed1f2d7cd
+Revises: 7b1c15c6123d
 Create Date: 2022-03-15 17:44:51.725673
 
 """
@@ -11,7 +11,7 @@ import sqlalchemy as sa
 
 # revision identifiers, used by Alembic.
 revision = '21d9ebfb9dd7'
-down_revision = 'b10ed1f2d7cd'
+down_revision = '7b1c15c6123d'
 branch_labels = None
 depends_on = None
 
