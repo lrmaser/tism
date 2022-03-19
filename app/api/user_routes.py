@@ -1,7 +1,7 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, request
 from flask_login import login_required
-from app.models import User
-# import form here
+from app.models import db, User
+from app.forms import EditProfileForm
 
 user_routes = Blueprint('users', __name__)
 
@@ -24,18 +24,18 @@ def user(id):
 @user_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def edit_profile(id):
-    # form =
-    # form['csrf_token'].data = request.cookies['csrf_token']
+    form = EditProfileForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
 
-    # if form.validate_on_submit():
-    #     edited_profile = User.query.get(id)
+    if form.validate_on_submit():
+        edited_profile = User.query.get(id)
 
-    #     edited_profile.name = form.data['name']
-    #     edited_profile.profile_image = form.data['profile_image']
-    #     edited_profile.about = form.data['about']
+        edited_profile.name = form.data['name']
+        edited_profile.profile_image = form.data['profile_image']
+        edited_profile.about = form.data['about']
 
-    #     db.session.commit()
+        db.session.commit()
 
-    #     return edited_profile.to_dict()
+        return edited_profile.to_dict()
 
     return {'error': 'Failed to update profile'}
