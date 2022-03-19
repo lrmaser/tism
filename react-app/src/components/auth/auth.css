@@ -1,16 +1,19 @@
-.login-form {
+.login-form,
+.signup-form {
     padding: 20px;
     width: 300px;
 }
 
-.login-form-header {
+.login-form-header,
+.signup-form-header {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 15px;
     text-align: center;
 }
 
-.login-errors {
+.login-errors,
+.signup-errors {
     background-color: #fdb7ad;
     border: 1px solid #fa604a;
     border-radius: 4px;
@@ -18,16 +21,22 @@
     padding: 10px;
 }
 
-.login-errors p {
+.login-errors p,
+.signup-errors p {
     margin: 0;
 }
 
-.login-errors ul {
+.login-errors ul,
+.signup-errors ul {
     margin-bottom: 0;
 }
 
 .login-form-email input,
-.login-form-password input {
+.login-form-password input,
+.signup-form-name input,
+.signup-form-email input,
+.signup-form-password input,
+.signup-form-confirm input {
     border: 1px solid rgba(34, 34, 34, 0.15);
     border-radius: 4px;
     box-shadow: 0 1px 4px 0 rgb(34 34 34 / 10%) inset;
@@ -38,12 +47,14 @@
     width: 290px;
 }
 
-.login-form-buttons {
+.login-form-buttons,
+.signup-form-button {
     display: flex;
     justify-content: space-evenly;
 }
 
-.login-form-buttons button {
+.login-form-buttons button,
+.signup-form-button button {
     background-color: #e12e0d;
     border: 0;
     border-radius: 4px;
@@ -52,6 +63,7 @@
     padding: 8px 16px;
 }
 
-.login-form-buttons button:hover {
+.login-form-buttons button:hover,
+.signup-form-button button:hover {
     background-color: #e6573e;
 }
