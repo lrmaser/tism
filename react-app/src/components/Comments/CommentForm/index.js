@@ -1,22 +1,52 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 
-import { Modal } from "../../../context/Modal";
-import CommentForm from "./CommentForm";
+import { createComment } from "../../../store/comment";
 import './CommentForm.css';
 
-const CommentFormModal = () => {
-    const [ showModal, setShowModal ] = useState(false);
+const CommentForm = () => {
+    const dispatch = useDispatch();
+    const { id } = useParams();
+
+    const user = useSelector(state => state.session.user);
+    const post = useSelector(state => state.posts[id]);
+
+    const [ body, setBody ] = useState('');
+
+    const updateBody = (e) => setBody(e.target.value);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        const payload = {
+            user_id: user.id,
+            post_id: post.id,
+            body
+        };
+
+        const newComment = await dispatch(createComment(payload));
+
+        if (newComment.ok) {
+            setBody('');
+        }
+    };
 
     return (
-        <>
-            <button onClick={() => setShowModal(true)}>Comment on Post</button>
-            {showModal && (
-                <Modal onClose={() => setShowModal(false)}>
-                    <CommentForm onClose={() => setShowModal(false)}/>
-                </Modal>
-            )}
-        </>
+        <form onSubmit={handleSubmit}>
+            <input
+                type='textarea'
+                name='body'
+                value={body}
+                onChange={updateBody}
+                placeholder='Write your comment'
+                required
+            />
+            <button type='submit' disabled={!body}>
+                Comment
+            </button>
+        </form>
     );
 };
 
-export default CommentFormModal;
+export default CommentForm;
