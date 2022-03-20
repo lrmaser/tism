@@ -48,7 +48,7 @@ const PostDetailPage = () => {
                 <p>{post?.body}</p>
             </div>
             {postMenu}
-            <CommentForm />
+            {user ? <CommentForm /> : null}
             <CommentsList />
         </main>
     );
