@@ -23,7 +23,7 @@ const EditPostForm = ({ onClose }) => {
         const validationErrors = [];
 
         if (title?.length > 80) {
-            validationErrors.push('Title must not be more than 80 characters long');
+            validationErrors.push('Title must not be more than 80 characters.');
         }
 
         setErrors(validationErrors);

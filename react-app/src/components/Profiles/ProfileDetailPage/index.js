@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from 'react-router-dom';
 
 import { getProfile } from '../../../store/profile';
-// import edit profile modal here
+import EditProfileModal from '../EditProfileForm';
 import './ProfileDetailPage.css';
 
 const ProfileDetailPage = () => {
@@ -21,8 +21,7 @@ const ProfileDetailPage = () => {
     if (user && profile?.id === user.id) {
         profileMenu = (
             <div>
-                {/* edit profile modal */}
-                Edit
+                <EditProfileModal />
             </div>
         );
     }
