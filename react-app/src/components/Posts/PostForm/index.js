@@ -49,10 +49,10 @@ const PostForm = () => {
         <main className='new-post-page'>
             <form className='new-post-form' onSubmit={handleSubmit}>
                 <h1>New Info Dump</h1>
-                <div className='new-post-error'>{error}</div>
+                <div className='post-error'>{error}</div>
                 <input
                     type='text'
-                    id='new-post-title'
+                    className='post-title'
                     name='title'
                     value={title}
                     onChange={updateTitle}
@@ -60,7 +60,7 @@ const PostForm = () => {
                     required
                 />
                 <textarea
-                    id='new-post-body'
+                    className='post-body'
                     name='body'
                     value={body}
                     onChange={updateBody}
@@ -68,11 +68,11 @@ const PostForm = () => {
                     rows={15}
                     required
                 />
-                <div className='new-post-buttons'>
-                    <button type='submit' className='new-post-submit' disabled={error || !title || !body}>
+                <div className='post-buttons'>
+                    <button type='submit' className='post-submit' disabled={error || !title || !body}>
                         Post
                     </button>
-                    <button type='button' className='new-post-cancel' onClick={handleCancel}>
+                    <button type='button' className='post-cancel' onClick={handleCancel}>
                         Cancel
                     </button>
                 </div>

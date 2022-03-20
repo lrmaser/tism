@@ -19,11 +19,11 @@
     margin-top: 0;
 }
 
-.new-post-error {
+.post-error {
     color: rgb(237, 67, 55)
 }
 
-#new-post-title {
+.post-title {
     border: 1px solid rgba(34, 34, 34, 0.15);
     border-radius: 4px;
     box-shadow: 0 1px 4px 0 rgb(34 34 34 / 10%) inset;
@@ -33,7 +33,7 @@
     padding: 5px;
 }
 
-#new-post-body {
+.post-body {
     border: 1px solid rgba(34, 34, 34, 0.15);
     border-radius: 4px;
     box-shadow: 0 1px 4px 0 rgb(34 34 34 / 10%) inset;
@@ -43,16 +43,12 @@
     resize: none;
 }
 
-.new-post-buttons {
+.post-buttons {
     align-self: flex-end;
     margin-top: 16px;
 }
 
-.new-post-submit:disabled {
-    background-color: lightgrey;
-}
-
-.new-post-buttons button {
+.post-buttons button {
     background-color: #f64900;
     border: 0;
     border-radius: 4px;
@@ -65,10 +61,15 @@
     padding: 8px 16px;
 }
 
-.new-post-submit:enabled:hover {
+.post-submit:disabled {
+    background-color: lightgrey;
+    cursor: auto;
+}
+
+.post-submit:enabled:hover {
     background-color: #f86d32;
 }
 
-.new-post-cancel:hover {
+.post-cancel:hover {
     background-color: #f86d32;
 }

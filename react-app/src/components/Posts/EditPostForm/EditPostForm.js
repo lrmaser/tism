@@ -12,7 +12,7 @@ const EditPostForm = ({ onClose }) => {
 
     const post = useSelector(state => state.posts[id]);
 
-    const [ errors, setErrors ] = useState([]);
+    const [ error, setError ] = useState([]);
     const [ title, setTitle ] = useState(post?.title);
     const [ body, setBody ] = useState(post?.body);
 
@@ -20,13 +20,11 @@ const EditPostForm = ({ onClose }) => {
     const updateBody = (e) => setBody(e.target.value);
 
     useEffect(() => {
-        const validationErrors = [];
-
         if (title?.length > 80) {
-            validationErrors.push('Title must not be more than 80 characters.');
+            setError('Title must not be more than 80 characters.');
+        } else {
+            setError('');
         }
-
-        setErrors(validationErrors);
     }, [title]);
 
     const handleSubmit = async (e) => {
@@ -47,12 +45,11 @@ const EditPostForm = ({ onClose }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <ul>
-                {errors.map((error, ind) => <li key={ind}>{error}</li>)}
-            </ul>
+        <form className='edit-post-form' onSubmit={handleSubmit}>
+            <div className='post-error'>{error}</div>
             <input
                 type='text'
+                className='post-title'
                 name='title'
                 value={title}
                 onChange={updateTitle}
@@ -60,18 +57,22 @@ const EditPostForm = ({ onClose }) => {
                 required
             />
             <textarea
+                className='post-body'
                 name='body'
                 value={body}
                 onChange={updateBody}
                 placeholder='Write your post'
+                rows={15}
                 required
             />
-            <button type='submit' disabled={errors.length > 0 || !title || !body}>
-                Post
-            </button>
-            <button type='button' onClick={onClose}>
-                Cancel
-            </button>
+            <div className='post-buttons'>
+                <button type='submit' className='post-submit' disabled={error || !title || !body}>
+                    Post
+                </button>
+                <button type='button' className='post-cancel' onClick={onClose}>
+                    Cancel
+                </button>
+            </div>
         </form>
     );
 };
