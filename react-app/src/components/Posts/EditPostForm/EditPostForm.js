@@ -59,8 +59,7 @@ const EditPostForm = ({ onClose }) => {
                 placeholder='Title of Post'
                 required
             />
-            <input
-                type='textarea'
+            <textarea
                 name='body'
                 value={body}
                 onChange={updateBody}

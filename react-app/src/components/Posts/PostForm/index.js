@@ -11,7 +11,7 @@ const PostForm = () => {
 
     const user = useSelector(state => state.session.user);
 
-    const [ errors, setErrors ] = useState([]);
+    const [ error, setError ] = useState('');
     const [ title, setTitle ] = useState('');
     const [ body, setBody ] = useState('');
 
@@ -19,13 +19,11 @@ const PostForm = () => {
     const updateBody = (e) => setBody(e.target.value);
 
     useEffect(() => {
-        const validationErrors = [];
-
         if (title.length > 80) {
-            validationErrors.push('Title must not be more than 80 characters long');
+            setError('Title must not be more than 80 characters.');
+        } else {
+            setError('');
         }
-
-        setErrors(validationErrors);
     }, [title]);
 
     const handleSubmit = async (e) => {
@@ -48,34 +46,38 @@ const PostForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h1>New Info Dump</h1>
-            <ul>
-                {errors.map((error, ind) => <li key={ind}>{error}</li>)}
-            </ul>
-            <input
-                type='text'
-                name='title'
-                value={title}
-                onChange={updateTitle}
-                placeholder='Title of Post'
-                required
-            />
-            <input
-                type='textarea'
-                name='body'
-                value={body}
-                onChange={updateBody}
-                placeholder='Write your post'
-                required
-            />
-            <button type='submit' disabled={errors.length > 0 || !title || !body}>
-                Post
-            </button>
-            <button type='button' onClick={handleCancel}>
-                Cancel
-            </button>
-        </form>
+        <main className='new-post-page'>
+            <form className='new-post-form' onSubmit={handleSubmit}>
+                <h1>New Info Dump</h1>
+                <div className='new-post-error'>{error}</div>
+                <input
+                    type='text'
+                    id='new-post-title'
+                    name='title'
+                    value={title}
+                    onChange={updateTitle}
+                    placeholder='Title of Post'
+                    required
+                />
+                <textarea
+                    id='new-post-body'
+                    name='body'
+                    value={body}
+                    onChange={updateBody}
+                    placeholder='Write your post'
+                    rows={15}
+                    required
+                />
+                <div className='new-post-buttons'>
+                    <button type='submit' className='new-post-submit' disabled={error || !title || !body}>
+                        Post
+                    </button>
+                    <button type='button' className='new-post-cancel' onClick={handleCancel}>
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </main>
     );
 };
 

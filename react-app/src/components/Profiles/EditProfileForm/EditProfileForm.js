@@ -67,8 +67,7 @@ const EditProfileForm = ({ onClose }) => {
                 onChange={updateProfileImage}
                 placeholder='Profile Image URL'
             />
-            <input
-                type='textarea'
+            <textarea
                 name='about'
                 value={about}
                 onChange={updateAbout}

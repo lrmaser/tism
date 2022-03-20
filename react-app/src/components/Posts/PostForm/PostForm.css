@@ -1,0 +1,73 @@
+.new-post-page {
+    border: 1px solid #d9e1ec;
+    border-radius: 4px;
+    margin: 20px auto;
+    max-width: 590px;
+    padding: 28px;
+}
+
+.new-post-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.new-post-form h1 {
+    color: #21293c;;
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 28px;
+    margin-top: 0;
+}
+
+.new-post-error {
+    color: rgb(237, 67, 55)
+}
+
+#new-post-title {
+    border: 1px solid rgba(34, 34, 34, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 1px 4px 0 rgb(34 34 34 / 10%) inset;
+    font-size: 18px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+#new-post-body {
+    border: 1px solid rgba(34, 34, 34, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 1px 4px 0 rgb(34 34 34 / 10%) inset;
+    font-family: inherit;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.new-post-buttons {
+    align-self: flex-end;
+    margin-top: 16px;
+}
+
+.new-post-submit:disabled {
+    background-color: lightgrey;
+}
+
+.new-post-buttons button {
+    background-color: #f64900;
+    border: 0;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 24px;
+    margin-left: 20px;
+    padding: 8px 16px;
+}
+
+.new-post-submit:enabled:hover {
+    background-color: #f86d32;
+}
+
+.new-post-cancel:hover {
+    background-color: #f86d32;
+}

@@ -5,5 +5,5 @@ from app.models import Post
 
 
 class PostForm(FlaskForm):
-    title = StringField('Title', validators=[DataRequired()])
-    body = TextAreaField('Body', validators=[DataRequired()])
+    title = StringField('title', validators=[DataRequired()])
+    body = TextAreaField('body', validators=[DataRequired()])
