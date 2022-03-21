@@ -42,14 +42,18 @@ const PostDetailPage = () => {
     if (!post) return null;
 
     return (
-        <main>
-            <div>
-                <h1>{post?.title}</h1>
-                <p>{post?.body}</p>
+        <main className='post-detail-page'>
+            <div className='post-detail-left'>
+                <div className='post-detail-title'>
+                    <h1>{post?.title}</h1>
+                </div>
+                <div className='post-detail-body'>
+                    <p>{post?.body}</p>
+                </div>
             </div>
             {postMenu}
-            {user ? <CommentForm /> : null}
             <CommentsList />
+            {user ? <CommentForm /> : null}
         </main>
     );
 };

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from "react-router-dom";
+import moment from 'moment';
 
 import { getPosts } from '../../../store/post';
 import './PostsList.css';
@@ -21,46 +22,6 @@ const PostsList = () => {
         e.preventDefault();
 
         return history.push('/posts/new');
-    };
-
-    // Doesn't take time zone into account, looking into date formatting package
-    const timeSincePosted = (postDate) => {
-        let seconds = Math.floor((new Date() - postDate) / 1000);
-        let intervalType;
-
-        let interval = Math.floor(seconds / 31536000);
-        if (interval >= 1) {
-            intervalType = 'year';
-        } else {
-            interval = Math.floor(seconds / 2592000);
-            if (interval >= 1) {
-                intervalType = 'month';
-            } else {
-                interval = Math.floor(seconds / 86400);
-                if (interval >= 1) {
-                    intervalType = 'day';
-                } else {
-                    interval = Math.floor(seconds / 3600);
-                    if (interval >= 1) {
-                        intervalType = 'hour';
-                    } else {
-                        interval = Math.floor(seconds / 60);
-                        if (interval >= 1) {
-                            intervalType = 'minute';
-                        } else {
-                            interval = seconds;
-                            intervalType = 'second';
-                        }
-                    }
-                }
-            }
-        }
-
-        if (interval > 1 || interval === 0) {
-            intervalType += 's';
-        }
-
-        return interval + ' ' + intervalType;
     };
 
     return (
@@ -100,7 +61,7 @@ const PostsList = () => {
                                 <div className='posts-post-replies'>
                                     <Link to={`/posts/${post.id}`}>{post.comments.length} replies</Link>
                                 </div>
-                                <div className='posts-post-time'>{timeSincePosted(new Date(post.created_at))} ago</div>
+                                <div className='posts-post-time'>{moment(post.created_at).fromNow()}</div>
                             </div>
                         </div>
                     </div>
