@@ -1,0 +1,45 @@
+.posts-page-banner {
+    background-color: #fef6f2;
+    display: flex;
+    height: 300px;
+    padding: 0 175px;
+}
+
+.posts-page-banner-left {
+    padding: 27px 0;
+    width: 50%;
+}
+
+.posts-page-banner-left h1 {
+    color: #21293c;
+    line-height: 40px;
+    margin-bottom: 16px;
+    margin-top: 0;
+}
+
+.posts-page-banner-left p {
+    color: #21293c;
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 16px;
+    margin-top: 0;
+}
+
+.posts-page-banner-left button {
+    background-color: #f64900;
+    border: 0;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    padding: 8px 16px;
+}
+
+.posts-page-banner-right {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+}

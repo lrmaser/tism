@@ -1,5 +1,5 @@
 .nav-bar {
-    box-shadow: 0 0 1px 1px rgb(33 41 63 / 10%);
+    border-bottom: 1px solid rgb(33 41 63 / 10%);
     height: 75px;
 }
 
