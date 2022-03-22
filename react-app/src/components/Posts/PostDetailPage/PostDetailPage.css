@@ -1,3 +1,65 @@
 .post-detail-page {
+    display: flex;
     margin: 40px 175px;
+}
+
+.post-detail-left {
+    width: 75%;
+}
+
+.post-detail-title h1 {
+    line-height: 40px;
+    margin: 0;
+}
+
+.post-detail-info {
+    display: flex;
+    padding-bottom: 12px;
+    padding-top: 4px;
+}
+
+.post-detail-author a,
+.post-detail-replies,
+.post-detail-time {
+    color: #4b587c;
+    font-size: 14px;
+    line-height: 24px;
+    text-decoration: none;
+}
+
+.post-detail-replies,
+.post-detail-time {
+    margin-left: 28px;
+}
+
+.post-detail-body {
+    line-height: 24px;
+    margin: 20px 0 40px 0;
+}
+
+.post-detail-body p {
+    margin: 0;
+}
+
+.comment-form-container {
+    display: flex;
+}
+
+.comment-form-user img {
+    border-radius: 50%;
+    height: 36px;
+    width: 36px;
+}
+
+.post-comments-header {
+    color: #21293c;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 24px;
+    margin-top: 24px;
+}
+
+.post-detail-right {
+    margin-left: 56px;
+    width: 25%;
 }

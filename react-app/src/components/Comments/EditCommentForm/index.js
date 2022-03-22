@@ -9,7 +9,9 @@ const EditCommentModal = ({ commentId }) => {
 
     return (
         <>
-        <button onClick={() => setShowModal(true)}>Edit Comment</button>
+        <button className='comment-edit' onClick={() => setShowModal(true)}>
+            <i className="fas fa-edit"></i>
+        </button>
         {showModal && (
             <Modal onClose={() => setShowModal(false)}>
                 <EditCommentForm commentId={commentId} onClose={() => setShowModal(false)} />
