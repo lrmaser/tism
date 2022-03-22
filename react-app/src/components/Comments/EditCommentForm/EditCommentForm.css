@@ -1,0 +1,48 @@
+.edit-comment-form {
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    padding: 28px;
+    width: 590px;
+}
+
+.edit-comment-body {
+    border: 1px solid rgba(34, 34, 34, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 1px 4px 0 rgb(34 34 34 / 10%) inset;
+    font-family: inherit;
+    font-size: 16px;
+    padding: 5px;
+    resize: none;
+}
+
+.edit-comment-buttons {
+    align-self: flex-end;
+    margin-top: 16px;
+}
+
+.edit-comment-buttons button {
+    background-color: #f64900;
+    border: 0;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 24px;
+    margin-left: 20px;
+    padding: 8px 16px;
+}
+
+.edit-comment-submit:disabled {
+    background-color: lightgrey;
+    cursor: auto;
+}
+
+.edit-comment-submit:enabled:hover {
+    background-color: #f86d32;
+}
+
+.edit-comment-cancel:hover {
+    background-color: #f86d32;
+}
