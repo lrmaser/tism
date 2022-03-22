@@ -27,8 +27,12 @@ const EditProfileForm = ({ onClose }) => {
             validationErrors.push('Name must not be more than 40 characters.');
         }
 
+        if (profileImage && !(/.(jpg|jpeg|gif|png|tiff|bmp)$/.test(profileImage))) {
+            validationErrors.push('The image URL must end in one of the following extensions: .jpg, .jpeg, .gif, .png, .tiff, .bmp.');
+        }
+
         setErrors(validationErrors);
-    }, [name]);
+    }, [name, profileImage]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -47,15 +51,25 @@ const EditProfileForm = ({ onClose }) => {
         }
     };
 
+    let errorBox;
+    if (errors.length > 0) {
+        errorBox = (
+            <div className='edit-profile-errors'>
+                <p>The following error(s) occurred:</p>
+                <ul>
+                    {errors.map((error, ind) => (
+                        <li key={ind}>{error}</li>
+                    ))}
+                </ul>
+            </div>
+        );
+    }
+
     return (
         <form className='edit-profile-form' onSubmit={handleSubmit}>
-            {errors.length ? (
-                <ul>
-                    {errors.map((error, ind) => <li key={ind}>{error}</li>)}
-                </ul>
-            ) : null}
+            {errorBox}
             <div className='edit-profile-name'>
-                <label>Name</label>
+                <label>Name <i className='required-text'>Required</i></label>
                 <input
                     type='text'
                     name='name'

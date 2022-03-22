@@ -5,6 +5,22 @@
     width: 500px;
 }
 
+.edit-profile-errors {
+    background-color: #fdb7ad;
+    border: 1px solid #fa604a;
+    border-radius: 4px;
+    margin-bottom: 24px;
+    padding: 10px;
+}
+
+.edit-profile-errors p {
+    margin: 0;
+}
+
+.edit-profile-errors ul {
+    margin-bottom: 0;
+}
+
 .edit-profile-name input,
 .edit-profile-image input,
 .edit-profile-about textarea {
@@ -19,6 +35,11 @@
     padding: 5px;
     resize: none;
     width: 100%;
+}
+
+.required-text {
+    color: rgb(237, 67, 55);
+    font-size: 14px;
 }
 
 .edit-profile-buttons {
