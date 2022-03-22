@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from datetime import datetime
-from app.models import db, Post, Comment
+from app.models import db, Comment
 from app.forms import CommentForm, EditCommentForm
 
 comment_routes = Blueprint('comments', __name__)
