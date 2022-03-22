@@ -10,6 +10,7 @@ const PostsList = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    const user = useSelector(state => state.session.user);
     const postsObj = useSelector(state => state.posts);
     const posts = Object.values(postsObj);
     posts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
@@ -30,7 +31,7 @@ const PostsList = () => {
                 <div className='posts-page-banner-left'>
                     <h1>Info dump and learn with the tism community</h1>
                     <p>Whether it's a fun fact or information about a special interest, we want to know about it. This is your space to share <i>whatever</i> is on your mind. As always, please remember to be kind. Inappropriate or disrespectful content will not be tolerated.</p>
-                    <button type='button' onClick={handleClick}>New Post</button>
+                    {user ? <button type='button' onClick={handleClick}>New Post</button> : null}
                 </div>
                 <div className='posts-page-banner-right'>
                     <img src="https://www.pikpng.com/pngl/b/333-3336426_hobby-icon-color-friend-png-clipart.png" alt="Hobbies"></img>

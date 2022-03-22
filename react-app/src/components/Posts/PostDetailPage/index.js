@@ -53,15 +53,18 @@ const PostDetailPage = () => {
                 <div className='post-detail-body'>
                     <p>{post?.body}</p>
                 </div>
-                <div className='comment-form-container'>
-                    <div className='comment-form-user'>
-                        {user?.profile_image
-                            ? <img src={post?.user.profile_image} alt="User's Profile"></img>
-                            : <img src="https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png" alt="Default User Profile"></img>
-                        }
-                    </div>
-                    {user ? <CommentForm /> : null}
-                </div>
+                {user
+                    ?   <div className='comment-form-container'>
+                            <div className='comment-form-user'>
+                                {user.profile_image
+                                    ? <img src={user.profile_image} alt="User's Profile"></img>
+                                    : <img src="https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png" alt="Default User Profile"></img>
+                                }
+                            </div>
+                            <CommentForm />
+                        </div>
+                    : null
+                }
                 <div className='post-comments-header'>Replies</div>
                 <CommentsList />
             </div>
