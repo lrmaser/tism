@@ -47,7 +47,7 @@ const ProfileDetailPage = () => {
             <div className='profile-bottom'>
                 <div className='profile-bottom-left'>
                     <div className='profile-about-user'>
-                        <h2>Bio</h2>
+                        <h2>About</h2>
                         <p>
                             {profile?.about
                                 ? profile.about
