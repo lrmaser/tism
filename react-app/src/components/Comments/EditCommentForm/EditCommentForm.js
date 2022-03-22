@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory, useParams } from 'react-router-dom';
 
 import { editComment } from '../../../store/comment';
 import './EditCommentForm.css';
 
 const EditCommentForm = ({ onClose, commentId }) => {
     const dispatch = useDispatch();
-    const history = useHistory();
-    const { id } = useParams();
 
     const comment = useSelector(state => state.comments[commentId]);
 
@@ -27,26 +24,29 @@ const EditCommentForm = ({ onClose, commentId }) => {
         const editedComment = await dispatch(editComment(payload));
 
         if (editedComment) {
-            history.push(`/posts/${id}`);
             onClose(false);
         }
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className='edit-comment-form' onSubmit={handleSubmit}>
             <textarea
+                className='edit-comment-body'
                 name='body'
                 value={body}
                 onChange={updateBody}
                 placeholder='Write your comment'
+                rows={10}
                 required
             />
-            <button type='submit' disabled={!body}>
-                Comment
-            </button>
-            <button type='button' onClick={onClose}>
-                Cancel
-            </button>
+            <div className='edit-comment-buttons'>
+                <button type='submit' className='edit-comment-submit' disabled={!body}>
+                    Comment
+                </button>
+                <button type='button' className='edit-comment-cancel' onClick={onClose}>
+                    Cancel
+                </button>
+            </div>
         </form>
     );
 };
