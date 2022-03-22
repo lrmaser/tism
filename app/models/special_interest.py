@@ -13,5 +13,6 @@ class SpecialInterest(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
+            'user_id': self.user_id,
             'name': self.name
         }

@@ -10,15 +10,20 @@ const EditProfileForm = ({ onClose }) => {
     const { id } = useParams();
 
     const profile = useSelector(state => state.profiles[id]);
+    console.log('+++++++++++++++++++++++', profile);
 
     const [ errors, setErrors ] = useState([]);
     const [ name, setName ] = useState(profile?.name);
-    const [ profileImage, setProfileImage ] = useState(profile?.profile_image);
-    const [ about, setAbout ] = useState(profile?.about);
+    const [ profileImage, setProfileImage ] = useState(profile?.profile_image || '');
+    const [ about, setAbout ] = useState(profile?.about || '');
+    // const [ specialInterests, setSpecialInterests ] = useState(profile?.special_interests);
 
     const updateName = (e) => setName(e.target.value);
     const updateProfileImage = (e) => setProfileImage(e.target.value);
     const updateAbout = (e) => setAbout(e.target.value);
+    // const updateSpecialInterests = (e) => setSpecialInterests(prevState => (
+    //     [...prevState, e.target.value]
+    // ));
 
     useEffect(() => {
         const validationErrors = [];
@@ -72,6 +77,13 @@ const EditProfileForm = ({ onClose }) => {
                 value={about}
                 onChange={updateAbout}
                 placeholder='Tell us about yourself'
+            />
+            <input
+                type='text'
+                name='special_interest'
+                // value={specialInterests}
+                // onChange={updateSpecialInterests}
+                placeholder='Write your special interest'
             />
             <button type='submit' disabled={errors.length > 0 || !name}>
                 Update Profile

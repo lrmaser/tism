@@ -39,5 +39,6 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'profile_image': self.profile_image,
             'about': self.about,
-            'created_at': self.created_at
+            'created_at': self.created_at,
+            'special_interests': [special_interest.to_dict() for special_interest in self.special_interests]
         }
