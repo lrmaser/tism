@@ -48,11 +48,18 @@ const ProfileDetailPage = () => {
                 <div className='profile-bottom-left'>
                     <div className='profile-about-user'>
                         <h2>Bio</h2>
-                        <p>Profile About</p>
+                        <p>
+                            {profile?.about
+                                ? profile.about
+                                : `${profile.name} hasn't shared anything yet!`
+                            }
+                        </p>
                     </div>
                     <div className='profile-special-interests'>
                         <h2>Special Interests</h2>
-                        <p>User's Special Interests</p>
+                        <ul>
+                            <li>User's Special Interests</li>
+                        </ul>
                     </div>
                 </div>
                 <div className='profile-bottom-right'>
