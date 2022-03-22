@@ -33,18 +33,22 @@ const CommentForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type='textarea'
-                name='body'
-                value={body}
-                onChange={updateBody}
-                placeholder='Write your comment'
-                required
-            />
-            <button type='submit' disabled={!body}>
-                Comment
-            </button>
+        <form className='comment-form' onSubmit={handleSubmit}>
+            <div className='comment-form-input'>
+                <textarea
+                    name='body'
+                    value={body}
+                    onChange={updateBody}
+                    placeholder='Write your comment'
+                    rows={1}
+                    required
+                />
+            </div>
+            <div className='comment-form-button'>
+                <button type='submit' disabled={!body}>
+                    Comment
+                </button>
+            </div>
         </form>
     );
 };

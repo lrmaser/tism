@@ -34,8 +34,7 @@ const EditCommentForm = ({ onClose, commentId }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input
-                type='textarea'
+            <textarea
                 name='body'
                 value={body}
                 onChange={updateBody}

@@ -1,0 +1,101 @@
+.post-detail-page {
+    display: flex;
+    margin: 40px 175px;
+}
+
+.post-detail-left {
+    width: 75%;
+}
+
+.post-detail-title h1 {
+    line-height: 40px;
+    margin: 0;
+}
+
+.post-detail-body {
+    line-height: 24px;
+    margin: 20px 0 40px 0;
+}
+
+.post-detail-body p {
+    margin: 0;
+}
+
+.comment-form-container {
+    display: flex;
+}
+
+.comment-form-user img {
+    border-radius: 50%;
+    height: 36px;
+    width: 36px;
+}
+
+.post-comments-header {
+    color: #21293c;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 24px;
+    margin-top: 24px;
+}
+
+.post-detail-right {
+    margin-left: 50px;
+    width: 25%;
+}
+
+.post-user-info {
+    border: 1px solid rgb(235, 233, 233);
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.post-user-img-and-name a {
+    display: flex;
+    text-decoration: none;
+}
+
+.post-user-img-and-name img {
+    border-radius: 50%;
+    height: 50px;
+    object-fit: contain;
+    width: 50px;
+}
+
+.post-user-name {
+    color: #21293c;
+    font-weight: bold;
+    line-height: 24px;
+    margin: 0 16px;
+}
+
+.post-user-joined-date {
+    align-items: center;
+    color: #21293c;
+    display: flex;
+    font-size: 12px;
+    line-height: 20px;
+    margin: 12px 0 24px 0;
+}
+
+.post-user-joined-date div {
+    margin-left: 10px;
+}
+
+.post-menu {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.post-menu button {
+    background-color: rgb(211, 205, 205);
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 4px 8px;
+}
+
+.post-menu button:hover {
+    background-color: rgb(223, 219, 219);
+}

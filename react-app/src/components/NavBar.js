@@ -60,9 +60,6 @@ const NavBar = () => {
             Stim Aids
           </li>
           <li>
-            Rules
-          </li>
-          <li>
             About
           </li>
         </div>
