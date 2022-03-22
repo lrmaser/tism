@@ -36,7 +36,7 @@ const PostDetailPage = () => {
     let postMenu = null;
     if (user && post?.user_id === user.id) {
         postMenu = (
-            <div>
+            <div className='post-menu'>
                 <EditPostModal />
                 <button onClick={handleDelete}>Delete Post</button>
             </div>
@@ -63,7 +63,7 @@ const PostDetailPage = () => {
                 </div>
                 <div className='comment-form-container'>
                     <div className='comment-form-user'>
-                        {post.user.profile_image
+                        {user?.profile_image
                             ? <img src={post?.user.profile_image} alt="User's Profile"></img>
                             : <img src="https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png" alt="Default User Profile"></img>
                         }
@@ -74,7 +74,19 @@ const PostDetailPage = () => {
                 <CommentsList />
             </div>
             <div className='post-detail-right'>
-                {postMenu}
+                <div className='post-user-info'>
+                    <div className='post-user-img-and-name'>
+                        <Link to={`/profiles/${post?.user_id}`}>
+                            {post?.user.profile_image
+                                ? <img src={post?.user.profile_image} alt="User's Profile"></img>
+                                : <img src="https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png" alt="Default User Profile"></img>
+                            }
+                            <div className='post-user-name'>{post?.user.name}</div>
+                        </Link>
+                    </div>
+                    <div className='post-user-joined-date'>Joined {moment(post?.user.created_at).format('LL')}</div>
+                    {postMenu}
+                </div>
             </div>
         </main>
     );

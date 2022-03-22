@@ -15,10 +15,12 @@
 .comment-user img {
     border-radius: 50%;
     height: 30px;
+    object-fit: contain;
     width: 30px;
 }
 
 .comment-contents {
+    border-bottom: 3px solid rgb(235, 233, 233);
     border-left: 3px solid rgb(235, 233, 233);
     margin-left: -16px;
     padding-left: 24px;
@@ -27,6 +29,7 @@
 
 .comment-user-name {
     display: flex;
+    justify-content: space-between;
 }
 
 .comment-user-name a {
@@ -44,8 +47,11 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 13px;
-    margin-left: 10px;
     padding: 4px 8px;
+}
+
+.comment-delete {
+    margin-left: 10px;
 }
 
 .comment-edit:hover,

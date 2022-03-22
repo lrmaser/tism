@@ -60,6 +60,56 @@
 }
 
 .post-detail-right {
-    margin-left: 56px;
+    margin-left: 50px;
     width: 25%;
+}
+
+.post-user-info {
+    border: 1px solid rgb(235, 233, 233);
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.post-user-img-and-name a {
+    display: flex;
+    text-decoration: none;
+}
+
+.post-user-img-and-name img {
+    border-radius: 50%;
+    height: 50px;
+    object-fit: contain;
+    width: 50px;
+}
+
+.post-user-name {
+    color: #21293c;
+    font-weight: bold;
+    line-height: 24px;
+    margin: 0 16px;
+}
+
+.post-user-joined-date {
+    color: #21293c;
+    font-size: 12px;
+    line-height: 20px;
+    margin: 12px 0 24px 0;
+}
+
+.post-menu {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.post-menu button {
+    background-color: rgb(211, 205, 205);
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 4px 8px;
+}
+
+.post-menu button:hover {
+    background-color: rgb(223, 219, 219);
 }
