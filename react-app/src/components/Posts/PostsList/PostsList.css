@@ -44,6 +44,10 @@
     width: 50%;
 }
 
+.posts-page-banner-right img {
+    height: 246px;
+}
+
 .posts-page-bottom {
     margin: 20px 175px 0 175px;
 }

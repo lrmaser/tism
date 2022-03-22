@@ -12,26 +12,6 @@
     margin: 0;
 }
 
-.post-detail-info {
-    display: flex;
-    padding-bottom: 12px;
-    padding-top: 4px;
-}
-
-.post-detail-author a,
-.post-detail-replies,
-.post-detail-time {
-    color: #4b587c;
-    font-size: 14px;
-    line-height: 24px;
-    text-decoration: none;
-}
-
-.post-detail-replies,
-.post-detail-time {
-    margin-left: 28px;
-}
-
 .post-detail-body {
     line-height: 24px;
     margin: 20px 0 40px 0;
@@ -90,10 +70,16 @@
 }
 
 .post-user-joined-date {
+    align-items: center;
     color: #21293c;
+    display: flex;
     font-size: 12px;
     line-height: 20px;
     margin: 12px 0 24px 0;
+}
+
+.post-user-joined-date div {
+    margin-left: 10px;
 }
 
 .post-menu {

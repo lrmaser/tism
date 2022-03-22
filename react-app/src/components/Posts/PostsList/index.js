@@ -33,7 +33,7 @@ const PostsList = () => {
                     <button type='button' onClick={handleClick}>New Post</button>
                 </div>
                 <div className='posts-page-banner-right'>
-                    Image here
+                    <img src="https://www.pikpng.com/pngl/b/333-3336426_hobby-icon-color-friend-png-clipart.png" alt="Hobbies"></img>
                 </div>
             </div>
             <div className='posts-page-bottom'>

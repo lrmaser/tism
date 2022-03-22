@@ -4,6 +4,7 @@ import { useHistory, useParams, Link } from "react-router-dom";
 import moment from 'moment';
 
 import { getPost, deletePost } from "../../../store/post";
+import { getComments } from "../../../store/comment";
 import EditPostModal from "../EditPostForm";
 import CommentForm from '../../Comments/CommentForm';
 import CommentsList from "../../Comments/CommentsList";
@@ -16,12 +17,10 @@ const PostDetailPage = () => {
 
     const user = useSelector(state => state.session.user);
     const post = useSelector(state => state.posts[id]);
-    const commentsObj = useSelector(state => state.comments);
-    const commentsArr = Object.values(commentsObj);
-    const comments = commentsArr.filter(comment => comment.post_id === post.id);
 
     useEffect(() => {
         dispatch(getPost(id));
+        dispatch(getComments());
     }, [dispatch, id]);
 
     const handleDelete = async (e) => {
@@ -51,13 +50,6 @@ const PostDetailPage = () => {
                 <div className='post-detail-title'>
                     <h1>{post?.title}</h1>
                 </div>
-                <div className='post-detail-info'>
-                    <div className='post-detail-author'>
-                        <Link to={`/profiles/${post?.user_id}`}>{post?.user.name}</Link>
-                    </div>
-                    <div className='post-detail-replies'>{comments?.length} replies</div>
-                    <div className='post-detail-time'>{moment(post?.created_at).fromNow()}</div>
-                </div>
                 <div className='post-detail-body'>
                     <p>{post?.body}</p>
                 </div>
@@ -84,7 +76,10 @@ const PostDetailPage = () => {
                             <div className='post-user-name'>{post?.user.name}</div>
                         </Link>
                     </div>
-                    <div className='post-user-joined-date'>Joined {moment(post?.user.created_at).format('LL')}</div>
+                    <div className='post-user-joined-date'>
+                        <i className="fas fa-birthday-cake"></i>
+                        <div>Joined {moment(post?.user.created_at).format('LL')}</div>
+                    </div>
                     {postMenu}
                 </div>
             </div>
