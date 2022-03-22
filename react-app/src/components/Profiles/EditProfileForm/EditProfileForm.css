@@ -1,0 +1,72 @@
+.edit-profile-form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 500px;
+}
+
+.edit-profile-errors {
+    background-color: #fdb7ad;
+    border: 1px solid #fa604a;
+    border-radius: 4px;
+    margin-bottom: 24px;
+    padding: 10px;
+}
+
+.edit-profile-errors p {
+    margin: 0;
+}
+
+.edit-profile-errors ul {
+    margin-bottom: 0;
+}
+
+.edit-profile-name input,
+.edit-profile-image input,
+.edit-profile-about textarea {
+    border: 1px solid rgba(34, 34, 34, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 1px 4px 0 rgb(34 34 34 / 10%) inset;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 14px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    padding: 5px;
+    resize: none;
+    width: 100%;
+}
+
+.required-text {
+    color: rgb(237, 67, 55);
+    font-size: 14px;
+}
+
+.edit-profile-buttons {
+    align-self: flex-end;
+}
+
+.edit-profile-buttons button {
+    background-color: #f64900;
+    border: 0;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 20px;
+    padding: 8px 16px;
+}
+
+.edit-profile-submit:disabled {
+    background-color: lightgrey;
+    cursor: auto;
+}
+
+.edit-profile-submit:enabled:hover {
+    background-color: #f86d32;
+}
+
+.edit-profile-cancel:hover {
+    background-color: #f86d32;
+}
