@@ -61,15 +61,8 @@
     display: flex;
 }
 
-.nav-right li {
+.nav-right-signup {
     padding-left: 20px;
-}
-
-.user-profile-dropdown img {
-    border-radius: 50%;
-    height: 40px;
-    object-fit: cover;
-    width: 40px;
 }
 
 .nav-login {

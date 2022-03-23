@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 import SignUpFormModal from './auth/SignUpFormModal';
 import LoginFormModal from './auth/LoginFormModal';
-import LogoutButton from './auth/LogoutButton';
+import ProfileButton from './ProfileButton';
 import './NavBar.css';
 
 const NavBar = ({ profile }) => {
@@ -19,19 +19,8 @@ const NavBar = ({ profile }) => {
             New Post
           </NavLink>
         </li>
-        <li className='user-profile-dropdown'>
-          {profile?.profile_image
-            ? <img src={profile?.profile_image} alt="User's Profile"></img>
-            : <img src="https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png" alt="Default User Profile"></img>
-          }
-        </li>
         <li>
-          <NavLink to={`/profiles/${sessionUser.id}`} exact={true} activeClassName='active'>
-            Profile
-          </NavLink>
-        </li>
-        <li>
-          <LogoutButton />
+          <ProfileButton profile={profile} />
         </li>
       </div>
     );
@@ -41,7 +30,7 @@ const NavBar = ({ profile }) => {
         <li>
           <LoginFormModal />
         </li>
-        <li>
+        <li className='nav-right-signup'>
           <SignUpFormModal />
         </li>
       </div>
