@@ -31,6 +31,7 @@ const EditSpecialInterestForm = ({ onClose, specialInterestId }) => {
     return (
         <form className='edit-special-interest-form' onSubmit={handleSubmit}>
             <input
+                    className='edit-special-interest-name'
                     type='text'
                     value={name}
                     onChange={updateName}
