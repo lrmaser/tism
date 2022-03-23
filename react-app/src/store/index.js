@@ -4,12 +4,14 @@ import session from './session'
 import profiles from './profile';
 import posts from './post';
 import comments from './comment';
+import specialInterests from './special_interest';
 
 const rootReducer = combineReducers({
   session,
   profiles,
   posts,
-  comments
+  comments,
+  specialInterests
 });
 
 

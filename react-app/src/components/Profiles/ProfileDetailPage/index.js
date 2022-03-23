@@ -5,6 +5,8 @@ import moment from 'moment';
 
 import { getProfile } from '../../../store/profile';
 import EditProfileModal from '../EditProfileForm';
+import SpecialInterestsList from '../../SpecialInterests/SpecialInterestsList';
+import SpecialInterestForm from '../../SpecialInterests/SpecialInterestForm';
 import './ProfileDetailPage.css';
 
 const ProfileDetailPage = () => {
@@ -57,8 +59,13 @@ const ProfileDetailPage = () => {
                     </div>
                     <div className='profile-special-interests'>
                         <h2>Special Interests</h2>
-                        <ul>
-                            <li>User's Special Interests</li>
+                        <ul className='special-interests-list'>
+                            <SpecialInterestsList />
+                            {user?.id === +id && (
+                                <li className='special-interest-form-list-item'>
+                                    <SpecialInterestForm />
+                                </li>
+                            )}
                         </ul>
                     </div>
                 </div>
