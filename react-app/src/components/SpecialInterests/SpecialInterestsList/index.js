@@ -34,7 +34,7 @@ const SpecialInterestsList = () => {
                         <li>
                             {specialInterest.name}
                             {user?.id === specialInterest.user_id && (
-                                <button>
+                                <button onClick={(e) => handleDelete(e, specialInterest.id)}>
                                     <i className="fas fa-trash-alt"></i>
                                 </button>
                             )}

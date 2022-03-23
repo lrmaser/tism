@@ -6,6 +6,7 @@ import moment from 'moment';
 import { getProfile } from '../../../store/profile';
 import EditProfileModal from '../EditProfileForm';
 import SpecialInterestsList from '../../SpecialInterests/SpecialInterestsList';
+import SpecialInterestForm from '../../SpecialInterests/SpecialInterestForm';
 import './ProfileDetailPage.css';
 
 const ProfileDetailPage = () => {
@@ -59,16 +60,13 @@ const ProfileDetailPage = () => {
                         </p>
                     </div>
                     <div className='profile-special-interests'>
-                        <div className='profile-special-interests-header'>
-                            <h2>Special Interests</h2>
-                            <button type='button' onClick={() => setShowSpecialInterestForm(true)}>
-                                <i className="fas fa-plus"></i>
-                            </button>
-                        </div>
+                        <h2>Special Interests</h2>
                         <ul>
                             <SpecialInterestsList />
-                            {showSpecialInterestForm && (
-                                <li>Add SI Form</li>
+                            {user?.id === +id && (
+                                <li>
+                                    <SpecialInterestForm />
+                                </li>
                             )}
                         </ul>
                     </div>
