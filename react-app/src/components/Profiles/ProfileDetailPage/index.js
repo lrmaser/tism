@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from 'react-router-dom';
 import moment from 'moment';
 
 import { getProfile } from '../../../store/profile';
 import EditProfileModal from '../EditProfileForm';
+import SpecialInterestsList from '../../SpecialInterests/SpecialInterestsList';
 import './ProfileDetailPage.css';
 
 const ProfileDetailPage = () => {
@@ -13,6 +14,8 @@ const ProfileDetailPage = () => {
 
     const user = useSelector(state => state.session.user);
     const profile = useSelector(state => state.profiles[id]);
+
+    const [ showSpecialInterestForm, setShowSpecialInterestForm ] = useState(false);
 
     useEffect(() => {
         dispatch(getProfile(id));
@@ -56,9 +59,17 @@ const ProfileDetailPage = () => {
                         </p>
                     </div>
                     <div className='profile-special-interests'>
-                        <h2>Special Interests</h2>
+                        <div className='profile-special-interests-header'>
+                            <h2>Special Interests</h2>
+                            <button type='button' onClick={() => setShowSpecialInterestForm(true)}>
+                                <i className="fas fa-plus"></i>
+                            </button>
+                        </div>
                         <ul>
-                            <li>User's Special Interests</li>
+                            <SpecialInterestsList />
+                            {showSpecialInterestForm && (
+                                <li>Add SI Form</li>
+                            )}
                         </ul>
                     </div>
                 </div>
