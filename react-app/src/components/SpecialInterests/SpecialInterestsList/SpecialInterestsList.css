@@ -1,0 +1,25 @@
+.special-interests-list-item {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.special-interest-edit,
+.special-interest-delete {
+    background-color: rgb(211, 205, 205);
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 4px 8px;
+}
+
+.special-interest-delete {
+    margin-left: 10px;
+}
+
+.special-interest-edit:hover,
+.special-interest-delete:hover {
+    background-color: rgb(223, 219, 219);
+}

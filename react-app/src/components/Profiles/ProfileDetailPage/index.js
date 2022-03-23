@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from 'react-router-dom';
 import moment from 'moment';
@@ -15,8 +15,6 @@ const ProfileDetailPage = () => {
 
     const user = useSelector(state => state.session.user);
     const profile = useSelector(state => state.profiles[id]);
-
-    const [ showSpecialInterestForm, setShowSpecialInterestForm ] = useState(false);
 
     useEffect(() => {
         dispatch(getProfile(id));
@@ -61,10 +59,10 @@ const ProfileDetailPage = () => {
                     </div>
                     <div className='profile-special-interests'>
                         <h2>Special Interests</h2>
-                        <ul>
+                        <ul className='special-interests-list'>
                             <SpecialInterestsList />
                             {user?.id === +id && (
-                                <li>
+                                <li className='special-interest-form-list-item'>
                                     <SpecialInterestForm />
                                 </li>
                             )}

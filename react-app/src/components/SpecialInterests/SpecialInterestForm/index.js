@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
 
 import { createSpecialInterest } from "../../../store/special_interest";
 import './SpecialInterestForm.css';
 
 const SpecialInterestForm = () => {
     const dispatch = useDispatch();
-    const { id } = useParams();
 
     const user = useSelector(state => state.session.user);
-    const profile = useSelector(state => state.profiles[id]);
 
     const [ name, setName ] = useState('');
 

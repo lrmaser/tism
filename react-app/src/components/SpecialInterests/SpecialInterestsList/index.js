@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { getSpecialInterests, deleteSpecialInterest } from '../../../store/special_interest';
 import EditSpecialInterestModal from '../EditSpecialInterestForm';
@@ -31,16 +31,18 @@ const SpecialInterestsList = () => {
             {specialInterests?.map(specialInterest => {
                 if (specialInterest.user_id === +id) {
                     return (
-                        <li>
-                            {specialInterest.name}
-                            {user?.id === specialInterest.user_id && (
-                                <div>
-                                    <EditSpecialInterestModal specialInterestId={specialInterest.id} />
-                                    <button onClick={(e) => handleDelete(e, specialInterest.id)}>
-                                        <i className="fas fa-trash-alt"></i>
-                                    </button>
-                                </div>
-                            )}
+                        <li >
+                            <div className='special-interests-list-item'>
+                                {specialInterest.name}
+                                {user?.id === specialInterest.user_id && (
+                                    <div className='special-interests-buttons'>
+                                        <EditSpecialInterestModal specialInterestId={specialInterest.id} />
+                                        <button onClick={(e) => handleDelete(e, specialInterest.id)} className='special-interest-delete'>
+                                            <i className="fas fa-trash-alt"></i>
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
                         </li>
                     );
                 } else {

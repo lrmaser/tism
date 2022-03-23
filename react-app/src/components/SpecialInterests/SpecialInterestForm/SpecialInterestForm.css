@@ -1,0 +1,36 @@
+.special-interest-form {
+    align-items: center;
+    display: flex;
+}
+
+.special-interest-form-input {
+    width: 100%;
+}
+
+.special-interest-form-input input {
+    border: 1px solid rgba(34, 34, 34, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 1px 4px 0 rgb(34 34 34 / 10%) inset;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 18px;
+    width: 80%;
+}
+
+.special-interest-form-button button {
+    background-color: rgb(211, 205, 205);
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 4px 8px;
+}
+
+.special-interest-form-button button:disabled {
+    background-color: rgb(223, 219, 219);
+    cursor: auto;
+}
+
+.special-interest-form-button button:enabled:hover {
+    background-color: rgb(223, 219, 219);
+}
