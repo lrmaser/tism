@@ -31,7 +31,7 @@ const SpecialInterestsList = () => {
             {specialInterests?.map(specialInterest => {
                 if (specialInterest.user_id === +id) {
                     return (
-                        <li >
+                        <li key={specialInterest.id}>
                             <div className='special-interests-list-item'>
                                 {specialInterest.name}
                                 {user?.id === specialInterest.user_id && (

@@ -14,7 +14,7 @@
     padding: 0 40px 20px 40px;
 }
 
-.nav-ul a {
+.nav-left a {
     color: #4b587c;
     padding: 8px;
     text-decoration: none;
@@ -61,7 +61,7 @@
     display: flex;
 }
 
-.nav-right li {
+.nav-right-signup {
     padding-left: 20px;
 }
 

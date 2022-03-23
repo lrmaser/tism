@@ -28,6 +28,7 @@
 .comment-form-user img {
     border-radius: 50%;
     height: 36px;
+    object-fit: cover;
     width: 36px;
 }
 
@@ -58,7 +59,7 @@
 .post-user-img-and-name img {
     border-radius: 50%;
     height: 50px;
-    object-fit: contain;
+    object-fit: cover;
     width: 50px;
 }
 

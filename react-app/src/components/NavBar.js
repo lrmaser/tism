@@ -4,10 +4,11 @@ import { NavLink } from 'react-router-dom';
 
 import SignUpFormModal from './auth/SignUpFormModal';
 import LoginFormModal from './auth/LoginFormModal';
-import LogoutButton from './auth/LogoutButton';
+import SubmitNewButton from './SubmitNewButton';
+import ProfileButton from './ProfileButton';
 import './NavBar.css';
 
-const NavBar = () => {
+const NavBar = ({ profile }) => {
   const sessionUser = useSelector(state => state.session.user);
 
   let sessionLinks;
@@ -15,17 +16,10 @@ const NavBar = () => {
     sessionLinks = (
       <div className='nav-right'>
         <li>
-          <NavLink to='/posts/new' exact={true} activeClassName='active'>
-            New Post
-          </NavLink>
+          <SubmitNewButton />
         </li>
         <li>
-          <NavLink to={`/profiles/${sessionUser.id}`} exact={true} activeClassName='active'>
-            Profile
-          </NavLink>
-        </li>
-        <li>
-          <LogoutButton />
+          <ProfileButton profile={profile} />
         </li>
       </div>
     );
@@ -35,7 +29,7 @@ const NavBar = () => {
         <li>
           <LoginFormModal />
         </li>
-        <li>
+        <li className='nav-right-signup'>
           <SignUpFormModal />
         </li>
       </div>
@@ -56,12 +50,12 @@ const NavBar = () => {
               Info Dump
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             Stim Aids
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             About
-          </li>
+          </li> */}
         </div>
         {sessionLinks}
       </ul>
