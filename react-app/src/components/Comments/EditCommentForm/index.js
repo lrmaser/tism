@@ -9,14 +9,14 @@ const EditCommentModal = ({ commentId }) => {
 
     return (
         <>
-        <button className='comment-edit' onClick={() => setShowModal(true)}>
-            <i className="fas fa-edit"></i>
-        </button>
-        {showModal && (
-            <Modal onClose={() => setShowModal(false)}>
-                <EditCommentForm commentId={commentId} onClose={() => setShowModal(false)} />
-            </Modal>
-        )}
+            <button className='comment-edit' onClick={() => setShowModal(true)}>
+                <i className="fas fa-edit"></i>
+            </button>
+            {showModal && (
+                <Modal onClose={() => setShowModal(false)}>
+                    <EditCommentForm commentId={commentId} onClose={() => setShowModal(false)} />
+                </Modal>
+            )}
         </>
     );
 };

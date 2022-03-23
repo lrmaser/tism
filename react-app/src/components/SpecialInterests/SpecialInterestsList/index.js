@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from "react-router-dom";
 
 import { getSpecialInterests, deleteSpecialInterest } from '../../../store/special_interest';
-// import edit modal?
+import EditSpecialInterestModal from '../EditSpecialInterestForm';
 import './SpecialInterestsList.css';
 
 const SpecialInterestsList = () => {
@@ -34,9 +34,12 @@ const SpecialInterestsList = () => {
                         <li>
                             {specialInterest.name}
                             {user?.id === specialInterest.user_id && (
-                                <button onClick={(e) => handleDelete(e, specialInterest.id)}>
-                                    <i className="fas fa-trash-alt"></i>
-                                </button>
+                                <div>
+                                    <EditSpecialInterestModal specialInterestId={specialInterest.id} />
+                                    <button onClick={(e) => handleDelete(e, specialInterest.id)}>
+                                        <i className="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
                             )}
                         </li>
                     );
