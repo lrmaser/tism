@@ -50,12 +50,12 @@ const NavBar = ({ profile }) => {
               Info Dump
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             Stim Aids
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             About
-          </li>
+          </li> */}
         </div>
         {sessionLinks}
       </ul>
