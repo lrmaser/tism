@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 import SignUpFormModal from './auth/SignUpFormModal';
 import LoginFormModal from './auth/LoginFormModal';
+import SubmitNewButton from './SubmitNewButton';
 import ProfileButton from './ProfileButton';
 import './NavBar.css';
 
@@ -15,9 +16,7 @@ const NavBar = ({ profile }) => {
     sessionLinks = (
       <div className='nav-right'>
         <li>
-          <NavLink to='/posts/new' exact={true} activeClassName='active'>
-            New Post
-          </NavLink>
+          <SubmitNewButton />
         </li>
         <li>
           <ProfileButton profile={profile} />
