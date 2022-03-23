@@ -1,0 +1,31 @@
+.submit-dropdown {
+    padding-left: 20px;
+}
+
+.submit-dropdown-menu {
+    position: absolute;
+    right: 115px;
+    top: 17px;
+    width: 100px;
+    z-index: 100;
+}
+
+.submit-dropdown-menu ul {
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 0 8px 1px rgb(33 41 60 / 10%);
+    list-style: none;
+    margin-top: 40px;
+    padding-left: 0;
+}
+
+.submit-dropdown-menu li {
+    display: flex;
+    justify-content: center;
+    padding: 8px 16px;
+}
+
+.submit-post-li a {
+    color: #4b587c;
+    text-decoration: none;
+}
