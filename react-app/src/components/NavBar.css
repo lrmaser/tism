@@ -65,6 +65,13 @@
     padding-left: 20px;
 }
 
+.user-profile-dropdown img {
+    border-radius: 50%;
+    height: 40px;
+    object-fit: cover;
+    width: 40px;
+}
+
 .nav-login {
     background-color: white;
     border: 0;

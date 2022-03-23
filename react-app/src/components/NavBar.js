@@ -7,7 +7,7 @@ import LoginFormModal from './auth/LoginFormModal';
 import LogoutButton from './auth/LogoutButton';
 import './NavBar.css';
 
-const NavBar = () => {
+const NavBar = ({ profile }) => {
   const sessionUser = useSelector(state => state.session.user);
 
   let sessionLinks;
@@ -18,6 +18,12 @@ const NavBar = () => {
           <NavLink to='/posts/new' exact={true} activeClassName='active'>
             New Post
           </NavLink>
+        </li>
+        <li className='user-profile-dropdown'>
+          {profile?.profile_image
+            ? <img src={profile?.profile_image} alt="User's Profile"></img>
+            : <img src="https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png" alt="Default User Profile"></img>
+          }
         </li>
         <li>
           <NavLink to={`/profiles/${sessionUser.id}`} exact={true} activeClassName='active'>

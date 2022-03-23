@@ -76,7 +76,7 @@
 .posts-user img {
     border-radius: 50%;
     height: 40px;
-    object-fit: contain;
+    object-fit: cover;
     width: 40px;
 }
 
