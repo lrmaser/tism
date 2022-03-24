@@ -10,6 +10,7 @@ import PostForm from './components/Posts/PostForm';
 import PostsList from './components/Posts/PostsList';
 import PostDetailPage from './components/Posts/PostDetailPage';
 import StimAidForm from './components/StimAids/StimAidForm';
+import StimAidsList from './components/StimAids/StimAidsList';
 
 import { authenticate } from './store/session';
 import { getProfile } from './store/profile';
@@ -65,7 +66,7 @@ function App() {
         </Route>
 
         <Route path='/stim_aids' exact={true} >
-          <h1>Stim Aids List</h1>
+          <StimAidsList />
         </Route>
 
         <Route path='/stim_aids/new' exact={true} >
