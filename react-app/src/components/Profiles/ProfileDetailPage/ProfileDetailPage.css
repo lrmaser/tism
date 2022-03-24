@@ -44,6 +44,20 @@
     margin-bottom: 16px;
 }
 
+.profile-user-header {
+    align-items: center;
+    display: flex;
+}
+
+.github-linkedin-links {
+    font-size: 32px;
+}
+
+.github-linkedin-links a {
+    color: white;
+    margin-left: 12px;
+}
+
 .profile-edit-button {
     align-items: flex-end;
     display: flex;

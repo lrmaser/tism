@@ -41,7 +41,19 @@ const ProfileDetailPage = () => {
                     }
                 </div>
                 <div className='profile-user-info'>
-                    <h1>{profile?.name}</h1>
+                    <div className='profile-user-header'>
+                        <h1>{profile?.name}</h1>
+                        {+id === 4 && (
+                            <div className='github-linkedin-links'>
+                                <a href='https://github.com/lrmaser' target='_blank' rel='noopener noreferrer'>
+                                    <i className="fab fa-github"></i>
+                                </a>
+                                <a href='https://www.linkedin.com/in/laura-maser-225196b2/' target='_blank' rel='noopener noreferrer'>
+                                    <i className="fab fa-linkedin"></i>
+                                </a>
+                            </div>
+                        )}
+                    </div>
                     <p>Member since {moment(profile?.created_at).format('LL')}</p>
                     {profileMenu}
                 </div>
