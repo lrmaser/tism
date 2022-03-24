@@ -24,6 +24,11 @@ const SubmitNewButton = () => {
                                 New Post
                             </NavLink>
                         </li>
+                        <li className='submit-stim-li'>
+                            <NavLink to='/stim_aids/new' exact={true} activeClassName='active'>
+                                New Stim Aid
+                            </NavLink>
+                        </li>
                     </ul>
                 </div>
             )}

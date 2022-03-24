@@ -50,9 +50,11 @@ const NavBar = ({ profile }) => {
               Info Dump
             </NavLink>
           </li>
-          {/* <li>
-            Stim Aids
-          </li> */}
+          <li>
+            <NavLink to='/stim_aids' exact={true} activeClassName='active'>
+              Stim Aids
+            </NavLink>
+          </li>
           {/* <li>
             About
           </li> */}
