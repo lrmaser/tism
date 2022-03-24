@@ -5,13 +5,15 @@ import profiles from './profile';
 import posts from './post';
 import comments from './comment';
 import specialInterests from './special_interest';
+import stimAids from './stim_aid';
 
 const rootReducer = combineReducers({
   session,
   profiles,
   posts,
   comments,
-  specialInterests
+  specialInterests,
+  stimAids
 });
 
 
