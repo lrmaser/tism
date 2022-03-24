@@ -6,7 +6,6 @@
     position: absolute;
     right: 115px;
     top: 17px;
-    width: 100px;
     z-index: 100;
 }
 
@@ -25,7 +24,12 @@
     padding: 8px 16px;
 }
 
-.submit-post-li a {
+.submit-post-li {
+    border-bottom: 1px solid #eef2ff;
+}
+
+.submit-post-li a,
+.submit-stim-li a {
     color: #4b587c;
     text-decoration: none;
 }
