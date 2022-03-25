@@ -77,7 +77,7 @@ const StimAidForm = () => {
                     required
                 />
                 <div className='stim-form-notice'>
-                    <p>The following ratings are optional. Please select what you'd deem appropriate for the stim aid.</p>
+                    <p>The following ratings are optional. If you do not wish to leave a rating, leave it at 0. Otherwise, please select what you'd deem appropriate for the stim aid.</p>
                 </div>
                 <div className='stim-form-ratings'>
                     <div className='noise-rating-container'>
