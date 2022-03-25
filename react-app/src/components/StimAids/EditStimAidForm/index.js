@@ -4,15 +4,17 @@ import { Modal } from "../../../context/Modal";
 import EditStimAidForm from "./EditStimAidForm";
 import './EditStimAidForm.css';
 
-const EditStimAidModal = () => {
+const EditStimAidModal = ({ stimAidId }) => {
     const [ showModal, setShowModal ] = useState(false);
 
     return (
         <>
-            <button onClick={() => setShowModal(true)}>Edit Stim Aid</button>
+            <button className='stim-edit' onClick={() => setShowModal(true)}>
+                <i className="fas fa-edit"></i>
+            </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <EditStimAidForm onClose={() => setShowModal(false)}/>
+                    <EditStimAidForm stimAidId={stimAidId} onClose={() => setShowModal(false)}/>
                 </Modal>
             )}
         </>
