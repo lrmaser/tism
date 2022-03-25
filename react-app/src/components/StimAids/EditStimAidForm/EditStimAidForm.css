@@ -1,0 +1,6 @@
+.edit-stim-form {
+    display: flex;
+    flex-direction: column;
+    padding: 28px;
+    width: 590px;
+}

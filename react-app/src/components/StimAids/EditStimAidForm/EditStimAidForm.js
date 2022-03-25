@@ -66,11 +66,11 @@ const EditStimAidForm = ({ onClose, stimAidId }) => {
                 value={description}
                 onChange={updateDescription}
                 placeholder='How would you describe the stim aid?'
-                rows={10}
+                rows={5}
                 required
             />
             <div className='stim-form-notice'>
-                <p>The following ratings are optional. If you do not wish to leave a rating, leave it at 0. Otherwise, please select what you'd deem appropriate for the stim aid.</p>
+                <p><i>The following ratings are optional. If you do not wish to leave a rating, leave it at 0. Otherwise, please select what you'd deem appropriate for the stim aid.</i></p>
             </div>
             <div className='stim-form-ratings'>
                 <div className='noise-rating-container'>

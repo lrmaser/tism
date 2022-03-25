@@ -141,3 +141,14 @@
 .consistency-rating i {
     padding-right: 5px;
 }
+
+.stims-stim-menu {}
+
+.stim-edit {
+    background-color: rgb(211, 205, 205);
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 4px 8px;
+}

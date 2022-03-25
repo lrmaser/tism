@@ -41,6 +41,11 @@
     resize: none;
 }
 
+.stim-form-notice {
+    margin-top: 10px;
+    text-align: center;
+}
+
 .stim-form-ratings {
     display: grid;
     grid-template-columns: 1fr 1fr;
