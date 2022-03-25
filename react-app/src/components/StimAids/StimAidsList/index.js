@@ -79,7 +79,10 @@ const StimAidsList = () => {
                 {stimAids?.map(stimAid => (
                     <div key={stimAid.id} className='stims-stim-container' style={{gridTemplateColumns: (stimAid.noise_rating === 0 && stimAid.chew_rating === 0 && stimAid.texture_rating === 0 && stimAid.consistency_rating === 0) ? 'auto 2fr auto auto' : 'auto 2fr 2fr auto'}}>
                         <div className='stims-stim-image'>
-                            <img src="https://softsmart.co.za/wp-content/uploads/2018/06/image-not-found-1038x576.jpg" alt="Not Found"></img>
+                            {stimAid.image_url
+                                ? <img src={stimAid.image_url} alt="Stim Aid"></img>
+                                : <img src="https://softsmart.co.za/wp-content/uploads/2018/06/image-not-found-1038x576.jpg" alt="Not Found"></img>
+                            }
                         </div>
                         <div className='stims-stim-info'>
                             <h3>{stimAid.name}</h3>
