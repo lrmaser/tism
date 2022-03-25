@@ -1,0 +1,108 @@
+.new-stim-page {
+    border: 1px solid #d9e1ec;
+    border-radius: 4px;
+    margin: 20px auto;
+    max-width: 590px;
+    padding: 28px;
+}
+
+.new-stim-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.new-stim-form h1 {
+    color: #21293c;;
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 28px;
+    margin-top: 0;
+}
+
+.stim-form-errors {
+    background-color: #fdb7ad;
+    border: 1px solid #fa604a;
+    border-radius: 4px;
+    margin-bottom: 24px;
+    padding: 0 10px;
+}
+
+.stim-name,
+.stim-image {
+    border: 1px solid rgba(34, 34, 34, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 1px 4px 0 rgb(34 34 34 / 10%) inset;
+    font-family: inherit;
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.stim-description {
+    border: 1px solid rgba(34, 34, 34, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 1px 4px 0 rgb(34 34 34 / 10%) inset;
+    font-family: inherit;
+    font-size: 16px;
+    padding: 5px;
+    resize: none;
+}
+
+.stim-form-notice {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.stim-form-ratings {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.noise-rating-container,
+.chew-rating-container,
+.texture-rating-container,
+.consistency-rating-container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.noise-rating-label,
+.chew-rating-label,
+.texture-rating-label,
+.consistency-rating-label {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.stim-buttons {
+    align-self: flex-end;
+    margin-top: 16px;
+}
+
+.stim-buttons button {
+    background-color: #f64900;
+    border: 0;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 24px;
+    margin-left: 20px;
+    padding: 8px 16px;
+}
+
+.stim-submit:disabled {
+    background-color: lightgrey;
+    cursor: auto;
+}
+
+.stim-submit:enabled:hover {
+    background-color: #f86d32;
+}
+
+.stim-cancel:hover {
+    background-color: #f86d32;
+}

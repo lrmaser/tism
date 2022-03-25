@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+
 // import ProtectedRoute from './components/auth/ProtectedRoute';
 import NavBar from './components/NavBar';
 // import UsersList from './components/UsersList';
@@ -8,6 +9,9 @@ import ProfileDetailPage from './components/Profiles/ProfileDetailPage';
 import PostForm from './components/Posts/PostForm';
 import PostsList from './components/Posts/PostsList';
 import PostDetailPage from './components/Posts/PostDetailPage';
+import StimAidForm from './components/StimAids/StimAidForm';
+import StimAidsList from './components/StimAids/StimAidsList';
+
 import { authenticate } from './store/session';
 import { getProfile } from './store/profile';
 
@@ -45,7 +49,7 @@ function App() {
           <h1>My Home Page</h1>
         </Route>
 
-        <Route path='/profiles/:id' exact={true}>
+        <Route path='/profiles/:id' exact={true} >
           <ProfileDetailPage />
         </Route>
 
@@ -59,6 +63,14 @@ function App() {
 
         <Route path='/posts/:id' exact={true} >
           <PostDetailPage />
+        </Route>
+
+        <Route path='/stim_aids' exact={true} >
+          <StimAidsList />
+        </Route>
+
+        <Route path='/stim_aids/new' exact={true} >
+          <StimAidForm />
         </Route>
 
       </Switch>

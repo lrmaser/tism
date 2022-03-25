@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import moment from 'moment';
 
 import { getProfile } from '../../../store/profile';
+import { getStimAids } from '../../../store/stim_aid';
 import EditProfileModal from '../EditProfileForm';
 import SpecialInterestsList from '../../SpecialInterests/SpecialInterestsList';
 import SpecialInterestForm from '../../SpecialInterests/SpecialInterestForm';
@@ -15,9 +16,13 @@ const ProfileDetailPage = () => {
 
     const user = useSelector(state => state.session.user);
     const profile = useSelector(state => state.profiles[id]);
+    const stimAidsObj = useSelector(state => state.stimAids);
+    const stimAidsArr = Object.values(stimAidsObj);
+    const stimAids = stimAidsArr.filter(stimAid => stimAid.owner_id === +id);
 
     useEffect(() => {
         dispatch(getProfile(id));
+        dispatch(getStimAids());
     }, [dispatch, id]);
 
     let profileMenu = null;
@@ -83,7 +88,13 @@ const ProfileDetailPage = () => {
                 </div>
                 <div className='profile-bottom-right'>
                     <h2>Favorite Stim Aids</h2>
-                    <div>Stim Aids List</div>
+                    <div className='profile-stims-container'>
+                        {stimAids?.map(stimAid => (
+                            <div className='profile-stim' key={stimAid.id}>
+                                <img src={stimAid.image_url} alt="Stim Aid"></img>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </main>
