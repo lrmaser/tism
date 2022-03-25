@@ -76,42 +76,75 @@ const StimAidForm = () => {
                     rows={10}
                     required
                 />
-                <input
-                    type='number'
-                    className='stim-noise-rating'
-                    name='noise_rating'
-                    value={noise_rating}
-                    onChange={updateNoiseRating}
-                    min={0}
-                    max={5}
-                />
-                <input
-                    type='number'
-                    className='stim-chew-rating'
-                    name='chew_rating'
-                    value={chew_rating}
-                    onChange={updateChewRating}
-                    min={0}
-                    max={5}
-                />
-                <input
-                    type='number'
-                    className='stim-texture-rating'
-                    name='texture_rating'
-                    value={texture_rating}
-                    onChange={updateTextureRating}
-                    min={0}
-                    max={5}
-                />
-                <input
-                    type='number'
-                    className='stim-consistency-rating'
-                    name='consistency_rating'
-                    value={consistency_rating}
-                    onChange={updateConsistencyRating}
-                    min={0}
-                    max={5}
-                />
+                <div className='stim-form-notice'>
+                    <p>The following ratings are optional. Please select what you'd deem appropriate for the stim aid.</p>
+                </div>
+                <div className='stim-form-ratings'>
+                    <div className='noise-rating-container'>
+                        <div className='noise-rating-label'>
+                            <label htmlFor='stim-noise-rating'>Noise Rating (Quiet to Loud)</label>
+                            <output htmlFor='stim-noise-rating'>{noise_rating}</output>
+                        </div>
+                        <input
+                            type='range'
+                            id='stim-noise-rating'
+                            className='stim-noise-rating'
+                            name='noise_rating'
+                            value={noise_rating}
+                            onChange={updateNoiseRating}
+                            min={0}
+                            max={5}
+                        />
+                    </div>
+                    <div className='chew-rating-container'>
+                        <div className='chew-rating-label'>
+                            <label htmlFor='stim-chew-rating'>Chewy Rating (Not to Very)</label>
+                            <output htmlFor='stim-chew-rating'>{chew_rating}</output>
+                        </div>
+                        <input
+                            type='range'
+                            id='stim-chew-rating'
+                            className='stim-chew-rating'
+                            name='chew_rating'
+                            value={chew_rating}
+                            onChange={updateChewRating}
+                            min={0}
+                            max={5}
+                        />
+                    </div>
+                    <div className='texture-rating-container'>
+                        <div className='texture-rating-label'>
+                            <label htmlFor='stim-texture-rating'>Texture Rating (Smooth to Rough)</label>
+                            <output htmlFor='stim-texture-rating'>{texture_rating}</output>
+                        </div>
+                        <input
+                            type='range'
+                            id='stim-texture-rating'
+                            className='stim-texture-rating'
+                            name='texture_rating'
+                            value={texture_rating}
+                            onChange={updateTextureRating}
+                            min={0}
+                            max={5}
+                        />
+                    </div>
+                    <div className='consistency-rating-container'>
+                        <div className='consistency-rating-label'>
+                            <label htmlFor='stim-consistency-rating'>Consistency Rating (Squishy to Hard)</label>
+                            <output htmlFor='stim-consistency-rating'>{consistency_rating}</output>
+                        </div>
+                        <input
+                            type='range'
+                            id='stim-consistency-rating'
+                            className='stim-consistency-rating'
+                            name='consistency_rating'
+                            value={consistency_rating}
+                            onChange={updateConsistencyRating}
+                            min={0}
+                            max={5}
+                        />
+                    </div>
+                </div>
                 <div className='stim-buttons'>
                     <button type='submit' className='stim-submit' disabled={errors.length > 0 || !name || !description}>
                         Submit
