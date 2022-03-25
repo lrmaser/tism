@@ -46,8 +46,8 @@ const StimAidsList = () => {
         <main className='stims-page'>
             <div className='stims-page-banner'>
                 <div className='stims-page-banner-left'>
-                    <h1>Stim Aids</h1>
-                    <p>Blurb about stim aids and language choice? Mention ratings are opinions.</p>
+                    <h1>Share some of your favorite stim aids</h1>
+                    <p>Why stim "aids"? There are various ways we can refer to them, such as stim toys, tools, aids, etc., but sometimes people think of toys as childish. As a precaution, it was decided to refer to them as aids, but you are welcome to call them what you see fit. The fact of the matter is, everybody stims!</p>
                     {user ? <button type='button' onClick={handleClick}>New Stim Aid</button> : null}
                 </div>
                 <div className='stims-page-banner-right'>
