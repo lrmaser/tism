@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 
-import { getStimAids } from '../../../store/stim_aid';
+import { getStimAids, deleteStimAid } from '../../../store/stim_aid';
 import EditStimAidModal from '../EditStimAidForm';
 import './StimAidsList.css';
 
@@ -32,6 +32,14 @@ const StimAidsList = () => {
         e.preventDefault();
 
         return history.push('/stim_aids/new');
+    };
+
+    const handleDelete = async (e, stimAidId, stimAidName) => {
+        e.preventDefault();
+
+        if (window.confirm(`Are you sure you'd like to delete ${stimAidName}?`)) {
+            await dispatch(deleteStimAid(stimAidId));
+        }
     };
 
     return (
@@ -113,7 +121,12 @@ const StimAidsList = () => {
                         </div>
                         <div className='stims-stim-menu'>
                             {user?.id === stimAid.owner_id && (
-                                <EditStimAidModal stimAidId={stimAid.id} />
+                                <div>
+                                    <EditStimAidModal stimAidId={stimAid.id} />
+                                    <button className='stim-delete' onClick={(e) => handleDelete(e, stimAid.id, stimAid.name)}>
+                                        <i className="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
                             )}
                         </div>
                     </div>
