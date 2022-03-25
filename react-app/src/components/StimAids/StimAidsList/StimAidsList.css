@@ -142,13 +142,27 @@
     padding-right: 5px;
 }
 
-.stims-stim-menu {}
+.stims-stim-menu {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
 
-.stim-edit {
+.stim-edit,
+.stim-delete {
     background-color: rgb(211, 205, 205);
     border: 0;
     border-radius: 4px;
     cursor: pointer;
     font-size: 13px;
     padding: 4px 8px;
+}
+
+.stim-delete {
+    margin-top: 10px;
+}
+
+.stim-edit:hover,
+.stim-delete:hover {
+    background-color: rgb(223, 219, 219);
 }

@@ -121,12 +121,12 @@ const StimAidsList = () => {
                         </div>
                         <div className='stims-stim-menu'>
                             {user?.id === stimAid.owner_id && (
-                                <div>
+                                <>
                                     <EditStimAidModal stimAidId={stimAid.id} />
                                     <button className='stim-delete' onClick={(e) => handleDelete(e, stimAid.id, stimAid.name)}>
                                         <i className="fas fa-trash-alt"></i>
                                     </button>
-                                </div>
+                                </>
                             )}
                         </div>
                     </div>
