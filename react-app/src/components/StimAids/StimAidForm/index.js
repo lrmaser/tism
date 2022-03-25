@@ -158,7 +158,7 @@ const StimAidForm = () => {
                     </div>
                 </div>
                 <div className='stim-buttons'>
-                    <button type='submit' className='stim-submit' disabled={errors.length > 0 || !name || !description}>
+                    <button type='submit' className='stim-submit' disabled={errors.length > 0 || !name || !image_url || !description}>
                         Submit
                     </button>
                     <button type='button' className='stim-cancel' onClick={handleCancel}>
