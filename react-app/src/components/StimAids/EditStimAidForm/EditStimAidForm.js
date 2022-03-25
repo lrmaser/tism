@@ -26,9 +26,19 @@ const EditStimAidForm = ({ onClose, stimAidId }) => {
     const updateTextureRating = (e) => setTextureRating(e.target.value);
     const updateConsistencyRating = (e) => setConsistencyRating(e.target.value);
 
-    // useEffect(() => {
-    //     // Error handling
-    // }, []);
+    useEffect(() => {
+        const validationErrors = [];
+
+        if (name?.length > 50) {
+            validationErrors.push('Name must not be more than 50 characters.');
+        }
+
+        if (image_url && !(/.(jpg|jpeg|gif|png|tiff|bmp)$/.test(image_url))) {
+            validationErrors.push('The image URL must end in one of the following extensions: .jpg, .jpeg, .gif, .png, .tiff, .bmp.');
+        }
+
+        setErrors(validationErrors);
+    }, [name, image_url]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -51,9 +61,23 @@ const EditStimAidForm = ({ onClose, stimAidId }) => {
         }
     };
 
+    let errorBox;
+    if (errors.length > 0) {
+        errorBox = (
+            <div className='stim-form-errors'>
+                <p>The following error(s) occurred:</p>
+                <ul>
+                    {errors.map((error, ind) => (
+                        <li key={ind}>{error}</li>
+                    ))}
+                </ul>
+            </div>
+        );
+    }
+
     return (
         <form className='edit-stim-form' onSubmit={handleSubmit}>
-            {/* errors */}
+            {errorBox}
             <input
                 type='text'
                 className='stim-name'
