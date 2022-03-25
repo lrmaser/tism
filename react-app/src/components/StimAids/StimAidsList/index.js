@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 
 import { getStimAids } from '../../../store/stim_aid';
+import EditStimAidModal from '../EditStimAidForm';
 import './StimAidsList.css';
 
 const StimAidsList = () => {
@@ -68,7 +69,7 @@ const StimAidsList = () => {
                     </span>
                 </div>
                 {stimAids?.map(stimAid => (
-                    <div key={stimAid.id} className='stims-stim-container' style={{gridTemplateColumns: (stimAid.noise_rating === 0 && stimAid.chew_rating === 0 && stimAid.texture_rating === 0 && stimAid.consistency_rating === 0) ? 'auto 2fr auto' : 'auto 2fr 2fr'}}>
+                    <div key={stimAid.id} className='stims-stim-container' style={{gridTemplateColumns: (stimAid.noise_rating === 0 && stimAid.chew_rating === 0 && stimAid.texture_rating === 0 && stimAid.consistency_rating === 0) ? 'auto 2fr auto auto' : 'auto 2fr 2fr auto'}}>
                         <div className='stims-stim-image'>
                             <img src="https://softsmart.co.za/wp-content/uploads/2018/06/image-not-found-1038x576.jpg" alt="Not Found"></img>
                         </div>
@@ -109,6 +110,11 @@ const StimAidsList = () => {
                                     ))}
                                 </div>
                             }
+                        </div>
+                        <div className='stims-stim-menu'>
+                            {user?.id === stimAid.owner_id && (
+                                <EditStimAidModal stimAidId={stimAid.id} />
+                            )}
                         </div>
                     </div>
                 ))}
