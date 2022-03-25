@@ -91,7 +91,7 @@
 
 .profile-about-user p,
 .profile-special-interests ul,
-.profile-bottom-right div {
+.profile-stims-container {
     margin-bottom: 48px;
 }
 
@@ -100,4 +100,17 @@
     margin-left: 24px;
     padding-left: 31px;
     width: 40%;
+}
+
+.profile-stims-container {
+    justify-items: center;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 40% 40%;
+}
+
+.profile-stim img {
+    height: 110px;
+    object-fit: contain;
+    width: 110px;
 }
