@@ -19,16 +19,22 @@
     margin-top: 0;
 }
 
-/* errors */
+.stim-form-errors {
+    background-color: #fdb7ad;
+    border: 1px solid #fa604a;
+    border-radius: 4px;
+    margin-bottom: 24px;
+    padding: 0 10px;
+}
 
 .stim-name,
 .stim-image {
     border: 1px solid rgba(34, 34, 34, 0.15);
     border-radius: 4px;
     box-shadow: 0 1px 4px 0 rgb(34 34 34 / 10%) inset;
-    font-size: 18px;
-    margin-bottom: 20px;
-    margin-top: 5px;
+    font-family: inherit;
+    font-size: 16px;
+    margin-bottom: 10px;
     padding: 5px;
 }
 
