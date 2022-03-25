@@ -24,6 +24,7 @@ def new_stim_aid():
         new_stim_aid = StimAid(
             owner_id = current_user.id,
             name = form.data['name'],
+            image_url = form.data['image_url'],
             description = form.data['description'],
             noise_rating = form.data['noise_rating'],
             chew_rating = form.data['chew_rating'],
@@ -57,6 +58,7 @@ def edit_stim_aid(id):
         edited_stim_aid = StimAid.query.get(id)
 
         edited_stim_aid.name = form.data['name']
+        edited_stim_aid.image_url = form.data['image_url']
         edited_stim_aid.description = form.data['description']
         edited_stim_aid.noise_rating = form.data['noise_rating']
         edited_stim_aid.chew_rating = form.data['chew_rating']

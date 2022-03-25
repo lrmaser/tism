@@ -11,6 +11,7 @@ const EditStimAidForm = ({ onClose, stimAidId }) => {
 
     const [ errors, setErrors ] = useState([]);
     const [ name, setName ] = useState(stimAid?.name);
+    const [ image_url, setImageUrl ] = useState(stimAid?.image_url);
     const [ description, setDescription ] = useState(stimAid?.description);
     const [ noise_rating, setNoiseRating ] = useState(stimAid?.noise_rating);
     const [ chew_rating, setChewRating ] = useState(stimAid?.chew_rating);
@@ -18,6 +19,7 @@ const EditStimAidForm = ({ onClose, stimAidId }) => {
     const [ consistency_rating, setConsistencyRating ] = useState(stimAid?.consistency_rating);
 
     const updateName = (e) => setName(e.target.value);
+    const updateImage = (e) => setImageUrl(e.target.value);
     const updateDescription = (e) => setDescription(e.target.value);
     const updateNoiseRating = (e) => setNoiseRating(e.target.value);
     const updateChewRating = (e) => setChewRating(e.target.value);
@@ -34,6 +36,7 @@ const EditStimAidForm = ({ onClose, stimAidId }) => {
         const payload = {
             ...stimAid,
             name,
+            image_url,
             description,
             noise_rating,
             chew_rating,
@@ -60,6 +63,15 @@ const EditStimAidForm = ({ onClose, stimAidId }) => {
                 placeholder='Name of Stim Aid'
                 required
             />
+            <input
+                    type='text'
+                    className='stim-image'
+                    name='image_url'
+                    value={image_url}
+                    onChange={updateImage}
+                    placeholder='Image URL'
+                    required
+                />
             <textarea
                 className='stim-description'
                 name='description'
