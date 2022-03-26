@@ -22,7 +22,7 @@ const SplashPage = () => {
                     <p>
                         Colloquially known as "info dumping," this is where you can share about absolutely anything.
                         Have you been doing research lately and need to share your findings with someone?
-                        Or maybe you learned a fun fact and no one wants to hear <i>another</i> fun fact. We do! <Link to='/posts/new'>Share</Link> it with us!</p>
+                        Or maybe you learned a fun fact and no one wants to hear <i>another</i> fun fact. We do! <Link to='/posts'>Share</Link> it with us!</p>
                 </div>
             </div>
             <div className='splash-stims-container'>
