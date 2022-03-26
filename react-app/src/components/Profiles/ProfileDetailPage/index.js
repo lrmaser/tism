@@ -25,6 +25,10 @@ const ProfileDetailPage = () => {
         dispatch(getStimAids());
     }, [dispatch, id]);
 
+    const handleImage = (e) => {
+        e.target.src = "https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png";
+    };
+
     let profileMenu = null;
     if (user && profile?.id === user.id) {
         profileMenu = (
@@ -40,8 +44,12 @@ const ProfileDetailPage = () => {
         <main className='profile-page'>
             <div className='profile-top'>
                 <div className='profile-image'>
-                    {profile?.profile_image
-                        ? <img src={profile.profile_image} alt="User's Profile"></img>
+                    {profile?.profile_image ?
+                        <img
+                            src={profile.profile_image}
+                            alt="User's Profile"
+                            onError={handleImage}
+                        />
                         : <img src="https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png" alt="Default User Profile"></img>
                     }
                 </div>
