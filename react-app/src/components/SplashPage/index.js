@@ -7,16 +7,16 @@ const SplashPage = () => {
     return (
         <main className='splash-page'>
             <div className='splash-mission-container'>
-                {/* image */}
+                <img src="https://autismcareerpathways.org/wp-content/uploads/2021/09/men-6121426_640-300x150.png" alt=""></img>
                 <h1>What is tism?</h1>
                 <p>
                     Tism is a community forum for neurodivergent, primarily autistic, individuals to bond over shared special interests and stim aids.
                     As a neurodivergent person myself, I wanted to provide a safe space for people to freely share about those interests.
-                    If you'd like to know more about me and my interests, please check out my <Link to='/profiles/4'>profile</Link>.
+                    If you'd like to know more about myself and my interests, please check out my <Link to='/profiles/4'>profile</Link>.
                 </p>
             </div>
             <div className='splash-special-interests-container'>
-                {/* image */}
+                <img src="https://www.logixbanking.com/~/media/Images/Graphics_Charts_and_Imagery/Did-You-Know.ashx?la=en&hash=D749389CDB7F45FEA96CF82A79F0564FE75B88CD" alt=""></img>
                 <div>
                     <h2>Share interesting things about your special interests</h2>
                     <p>
@@ -33,7 +33,7 @@ const SplashPage = () => {
                         You can also include ratings for things such as if it's noisy or chewable.
                     </p>
                 </div>
-                {/* image */}
+                <img src="https://www.pngkit.com/png/full/358-3585174_sight-hearing-taste-smell-and-touch-day-inside.png" alt=""></img>
             </div>
         </main>
     );
