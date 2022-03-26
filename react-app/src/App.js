@@ -63,7 +63,7 @@ function App() {
         </Route>
 
         <Route path='/posts/:id' exact={true} >
-          <PostDetailPage />
+          <PostDetailPage profile={profile} />
         </Route>
 
         <Route path='/stim_aids' exact={true} >

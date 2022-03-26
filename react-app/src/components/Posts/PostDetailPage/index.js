@@ -10,7 +10,7 @@ import CommentForm from '../../Comments/CommentForm';
 import CommentsList from "../../Comments/CommentsList";
 import './PostDetailPage.css';
 
-const PostDetailPage = () => {
+const PostDetailPage = ({ profile }) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
@@ -60,9 +60,9 @@ const PostDetailPage = () => {
                 {user
                     ?   <div className='comment-form-container'>
                             <div className='comment-form-user'>
-                                {user.profile_image ?
+                                {profile?.profile_image ?
                                     <img
-                                        src={user.profile_image}
+                                        src={profile?.profile_image}
                                         alt="User's Profile"
                                         onError={handleImage}
                                     />
