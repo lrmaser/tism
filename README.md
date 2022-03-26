@@ -1,6 +1,6 @@
 # Tism
 
-Tism is a community forum for neurodivergent (primarily autistic) individuals to bond over shared special interests. It is a loose clone of Product Hunt, where users can submit posts and comments. Users also have profile pages where they can include a profile image, share about themselves, and list their special interests.
+Tism is a community forum for neurodivergent (primarily autistic) individuals to bond over shared special interests and stim aids. It is a loose clone of Product Hunt, where users can submit posts and comments as well as a product listing page for stim aids. Users also have profile pages where they can include a profile image, share about themselves, and list their special interests.
 
 <br>
 
@@ -85,12 +85,15 @@ Tism is a community forum for neurodivergent (primarily autistic) individuals to
 ### Posts Page
 ![Posts Page](https://user-images.githubusercontent.com/92398763/160252126-1af6aeca-f6e7-4e4b-9b4e-e67f8b3ac3b2.png)
 
-
 <br>
 
 ### Post Detail/Comments Page
 ![Post Detail-Comments Page](https://user-images.githubusercontent.com/92398763/160252131-1febee6a-6103-4641-8882-83c8d53f54f2.png)
 
+<br>
+
+### Stim Aids Page (Product Listing)
+![Stim Aids Page](https://user-images.githubusercontent.com/92398763/160252379-c77b73f9-8771-41fe-bc07-544a751555b5.png)
 
 <br>
 
