@@ -43,6 +43,9 @@ def seed_special_interests():
     vern2 = SpecialInterest(user_id=13, name='Anime')
     vern3 = SpecialInterest(user_id=13, name='Spots')
     vern4 = SpecialInterest(user_id=13, name='Coding')
+    laura1 = SpecialInterest(user_id=4, name='Programming')
+    laura2 = SpecialInterest(user_id=4, name='Psychology')
+    laura3 = SpecialInterest(user_id=4, name='American Sign Language')
 
 
     db.session.add(demo2_1)
@@ -86,6 +89,9 @@ def seed_special_interests():
     db.session.add(vern2)
     db.session.add(vern3)
     db.session.add(vern4)
+    db.session.add(laura1)
+    db.session.add(laura2)
+    db.session.add(laura3)
 
     db.session.commit()
 
