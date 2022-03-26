@@ -11,7 +11,7 @@ def seed_users():
     demo3 = User(
         name='Demo User 3', email='demo3@aa.io', password='password', profile_image=None, about=None, created_at=datetime.now())
     laura = User(
-        name='Laura Maser', email='laura.maser3@yahoo.com', password='password', profile_image="https://avatars.githubusercontent.com/u/92398763?v=4.jpg", about=None, created_at=datetime.now())
+        name='Laura Maser', email='laura.maser3@yahoo.com', password='password', profile_image="https://avatars.githubusercontent.com/u/92398763?v=4.jpg", about="I am a software engineer who will soon be graduating from App Academy. I discovered my passion for programming when I was a senior in high school and took it up as an off and on hobby since. I’m happy to finally have the skills to break into the tech world and to have created the site you’re on now. It was created using the following technologies: JavaScript, React, Redux, HTML, CSS, Python, Flask, SQLAlchemy, Alembic, and PostgreSQL.", created_at=datetime.now())
     james = User(
         name='James Tuttle', email='james@aa.io', password='password', profile_image="https://avatars.githubusercontent.com/u/2349101?v=4.jpg", about=None, created_at=datetime.now())
     brendon = User(
