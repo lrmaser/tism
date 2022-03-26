@@ -73,24 +73,27 @@ Tism is a community forum for neurodivergent (primarily autistic) individuals to
 ## Features
 
 ### Splash Page
-* Add screenshot
+![Splash Page](https://user-images.githubusercontent.com/92398763/160252115-120f8958-0edb-4e7b-8c2a-e60568971dd1.png)
 
 <br>
 
 ### Login Modal
-* Add screenshot
+![Login Modal](https://user-images.githubusercontent.com/92398763/160252120-93721f5f-7ee5-476e-933e-192dc76b20de.png)
 
 <br>
 
 ### Posts Page
-* Add screenshot
+![Posts Page](https://user-images.githubusercontent.com/92398763/160252126-1af6aeca-f6e7-4e4b-9b4e-e67f8b3ac3b2.png)
+
 
 <br>
 
 ### Post Detail/Comments Page
-* Add screenshot
+![Post Detail-Comments Page](https://user-images.githubusercontent.com/92398763/160252131-1febee6a-6103-4641-8882-83c8d53f54f2.png)
+
 
 <br>
 
 ### User Profile Page
-* Add screenshot
+![Profile Page](https://user-images.githubusercontent.com/92398763/160252136-e4e0aca3-a9dd-417d-9076-e64addba44fc.png)
+
