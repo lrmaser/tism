@@ -23,6 +23,7 @@
 
 .splash-special-interests-container {
     display: grid;
+    gap: 20px;
     grid-template-columns: 1fr 1fr;
 }
 
@@ -32,6 +33,7 @@
 
 .splash-stims-container {
     display: grid;
+    gap: 20px;
     grid-template-columns: 1fr 1fr;
     justify-items: end;
 }
