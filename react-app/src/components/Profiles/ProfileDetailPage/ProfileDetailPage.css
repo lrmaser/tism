@@ -95,6 +95,10 @@
     margin-bottom: 48px;
 }
 
+.profile-about-user {
+    word-break: break-word;
+}
+
 .profile-bottom-right {
     border-left: 1px solid #d9e1ec;
     margin-left: 24px;
