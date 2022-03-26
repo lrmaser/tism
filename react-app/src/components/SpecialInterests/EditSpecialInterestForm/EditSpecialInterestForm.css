@@ -1,7 +1,6 @@
 .edit-special-interest-form {
     display: flex;
     flex-direction: column;
-    margin: 20px auto;
     padding: 28px;
     width: 450px;
 }
