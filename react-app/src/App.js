@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 // import ProtectedRoute from './components/auth/ProtectedRoute';
 import NavBar from './components/NavBar';
+import SplashPage from './components/SplashPage';
 // import UsersList from './components/UsersList';
 import ProfileDetailPage from './components/Profiles/ProfileDetailPage';
 import PostForm from './components/Posts/PostForm';
@@ -46,7 +47,7 @@ function App() {
         </ProtectedRoute> */}
 
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <SplashPage />
         </Route>
 
         <Route path='/profiles/:id' exact={true} >

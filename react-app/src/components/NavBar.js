@@ -55,9 +55,11 @@ const NavBar = ({ profile }) => {
               Stim Aids
             </NavLink>
           </li>
-          {/* <li>
-            About
-          </li> */}
+          <li>
+            <NavLink to='/profiles/4' exact={true} activeClassName='active'>
+              About
+            </NavLink>
+          </li>
         </div>
         {sessionLinks}
       </ul>

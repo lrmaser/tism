@@ -1,0 +1,45 @@
+.splash-page {
+    background-color: #fef6f2;
+    padding: 75px 275px 20px 275px;
+}
+
+.splash-page a {
+    color: #f64900;
+}
+
+.splash-mission-container,
+.splash-special-interests-container,
+.splash-stims-container {
+    margin-bottom: 100px;
+}
+
+.splash-mission-container {
+    text-align: center;
+}
+
+.splash-mission-container img {
+    height: 150px;
+}
+
+.splash-special-interests-container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.splash-special-interests-container img {
+    height: 250px;
+}
+
+.splash-stims-container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    justify-items: end;
+}
+
+.splash-stims-container img {
+    height: 250px;
+    object-fit: contain;
+    width: 100%;
+}
