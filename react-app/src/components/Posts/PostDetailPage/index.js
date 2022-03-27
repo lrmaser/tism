@@ -10,7 +10,7 @@ import CommentForm from '../../Comments/CommentForm';
 import CommentsList from "../../Comments/CommentsList";
 import './PostDetailPage.css';
 
-const PostDetailPage = () => {
+const PostDetailPage = ({ profile }) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
@@ -30,6 +30,10 @@ const PostDetailPage = () => {
             await dispatch(deletePost(id));
             history.push('/posts');
         }
+    };
+
+    const handleImage = (e) => {
+        e.target.src = "https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png";
     };
 
     let postMenu = null;
@@ -56,8 +60,12 @@ const PostDetailPage = () => {
                 {user
                     ?   <div className='comment-form-container'>
                             <div className='comment-form-user'>
-                                {user.profile_image
-                                    ? <img src={user.profile_image} alt="User's Profile"></img>
+                                {profile?.profile_image ?
+                                    <img
+                                        src={profile?.profile_image}
+                                        alt="User's Profile"
+                                        onError={handleImage}
+                                    />
                                     : <img src="https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png" alt="Default User Profile"></img>
                                 }
                             </div>
@@ -72,8 +80,12 @@ const PostDetailPage = () => {
                 <div className='post-user-info'>
                     <div className='post-user-img-and-name'>
                         <Link to={`/profiles/${post?.user_id}`}>
-                            {post?.user.profile_image
-                                ? <img src={post?.user.profile_image} alt="User's Profile"></img>
+                            {post?.user.profile_image ?
+                                <img
+                                    src={post?.user.profile_image}
+                                    alt="User's Profile"
+                                    onError={handleImage}
+                                />
                                 : <img src="https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png" alt="Default User Profile"></img>
                             }
                             <div className='post-user-name'>{post?.user.name}</div>

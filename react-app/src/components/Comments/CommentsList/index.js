@@ -26,6 +26,10 @@ const CommentsList = () => {
         }
     };
 
+    const handleImage = (e) => {
+        e.target.src = "https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png";
+    };
+
     return (
         <div className='comments-container'>
             {comments?.map(comment => {
@@ -34,8 +38,12 @@ const CommentsList = () => {
                         <div key={comment.id} className='comment'>
                             <div className='comment-user'>
                                 <Link to={`/profiles/${comment.user_id}`}>
-                                    {comment.user.profile_image
-                                        ? <img src={comment.user.profile_image} alt="User's Profile"></img>
+                                    {comment.user.profile_image ?
+                                        <img
+                                            src={comment.user.profile_image}
+                                            alt="User's Profile"
+                                            onError={handleImage}
+                                        />
                                         : <img src="https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png" alt="Default User Profile"></img>
                                     }
                                 </Link>

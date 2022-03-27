@@ -62,4 +62,5 @@
 .comment-body {
     color: #21293c;
     margin: 10px 0;
+    word-break: break-word;
 }

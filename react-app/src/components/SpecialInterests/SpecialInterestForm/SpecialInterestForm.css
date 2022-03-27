@@ -34,3 +34,7 @@
 .special-interest-form-button button:enabled:hover {
     background-color: rgb(223, 219, 219);
 }
+
+.special-interest-error {
+    color: rgb(237, 67, 55);
+}

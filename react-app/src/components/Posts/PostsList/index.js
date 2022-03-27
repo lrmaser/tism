@@ -25,6 +25,10 @@ const PostsList = () => {
         return history.push('/posts/new');
     };
 
+    const handleImage = (e) => {
+        e.target.src = "https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png";
+    };
+
     return (
         <main className='posts-page'>
             <div className='posts-page-banner'>
@@ -43,8 +47,12 @@ const PostsList = () => {
                     <div key={post.id} className='post-links'>
                         <div className='posts-user'>
                             <Link to={`/profiles/${post.user_id}`}>
-                                {post.user.profile_image
-                                    ? <img src={post.user.profile_image} alt="User's Profile"></img>
+                                {post.user.profile_image ?
+                                    <img
+                                        src={post.user.profile_image}
+                                        alt="User's Profile"
+                                        onError={handleImage}
+                                    />
                                     : <img src="https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png" alt="Default User Profile"></img>
                                 }
                             </Link>

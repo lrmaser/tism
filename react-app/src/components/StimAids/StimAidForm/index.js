@@ -35,12 +35,16 @@ const StimAidForm = () => {
             validationErrors.push('Name must not be more than 50 characters.');
         }
 
+        if (description?.length > 500) {
+            validationErrors.push('Description must not be more than 500 characters.');;
+        }
+
         if (image_url && !(/.(jpg|jpeg|gif|png|tiff|bmp)$/.test(image_url))) {
             validationErrors.push('The image URL must end in one of the following extensions: .jpg, .jpeg, .gif, .png, .tiff, .bmp.');
         }
 
         setErrors(validationErrors);
-    }, [name, image_url]);
+    }, [name, description, image_url]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -109,7 +113,7 @@ const StimAidForm = () => {
                     value={description}
                     onChange={updateDescription}
                     placeholder='How would you describe the stim aid?'
-                    rows={10}
+                    rows={8}
                     required
                 />
                 <div className='stim-form-notice'>

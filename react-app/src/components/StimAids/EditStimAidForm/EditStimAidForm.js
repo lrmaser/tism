@@ -33,12 +33,16 @@ const EditStimAidForm = ({ onClose, stimAidId }) => {
             validationErrors.push('Name must not be more than 50 characters.');
         }
 
+        if (description?.length > 500) {
+            validationErrors.push('Description must not be more than 500 characters.');;
+        }
+
         if (image_url && !(/.(jpg|jpeg|gif|png|tiff|bmp)$/.test(image_url))) {
             validationErrors.push('The image URL must end in one of the following extensions: .jpg, .jpeg, .gif, .png, .tiff, .bmp.');
         }
 
         setErrors(validationErrors);
-    }, [name, image_url]);
+    }, [name, description, image_url]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();

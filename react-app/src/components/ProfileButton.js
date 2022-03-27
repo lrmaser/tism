@@ -15,11 +15,19 @@ const ProfileButton = ({ profile }) => {
         setShowMenu(true);
     };
 
+    const handleImage = (e) => {
+        e.target.src = "https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png";
+    };
+
     return (
         <>
             <div className='user-profile-dropdown' onMouseEnter={openMenu}>
-                {profile?.profile_image
-                    ? <img src={profile?.profile_image} alt="User's Profile"></img>
+                {profile?.profile_image ?
+                    <img
+                        src={profile?.profile_image}
+                        alt="User's Profile"
+                        onError={handleImage}
+                    />
                     : <img src="https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png" alt="Default User Profile"></img>
                 }
             </div>
