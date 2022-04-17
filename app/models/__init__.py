@@ -4,4 +4,4 @@ from .post import Post
 from .comment import Comment
 from .special_interest import SpecialInterest
 from .stim_aid import StimAid
-from .user_stim_aid import user_stim_aids
+from .user_stim_aid import favorite_stim_aids
