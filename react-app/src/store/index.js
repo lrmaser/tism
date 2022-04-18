@@ -6,6 +6,7 @@ import posts from './post';
 import comments from './comment';
 import specialInterests from './special_interest';
 import stimAids from './stim_aid';
+import faveStimAids from './favorite_stim_aid';
 
 const rootReducer = combineReducers({
   session,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   posts,
   comments,
   specialInterests,
-  stimAids
+  stimAids,
+  faveStimAids
 });
 
 

@@ -131,7 +131,7 @@ const EditStimAidForm = ({ onClose, stimAidId }) => {
                 </div>
                 <div className='chew-rating-container'>
                     <div className='chew-rating-label'>
-                        <label htmlFor='stim-chew-rating'>Chewy Rating (Not to Very)</label>
+                        <label htmlFor='stim-chew-rating'>Chewy Rating (A Little to Very)</label>
                         <output htmlFor='stim-chew-rating'>{chew_rating}</output>
                     </div>
                     <input

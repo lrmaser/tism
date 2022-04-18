@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 
 import { getStimAids, deleteStimAid } from '../../../store/stim_aid';
+import { favoriteAStimAid, unfavoriteAStimAid } from '../../../store/favorite_stim_aid';
 import EditStimAidModal from '../EditStimAidForm';
 import './StimAidsList.css';
 
@@ -13,6 +14,10 @@ const StimAidsList = () => {
     const user = useSelector(state => state.session.user);
     const stimAidsObj = useSelector(state => state.stimAids);
     const stimAids = Object.values(stimAidsObj);
+    const faveStimAidsObj = useSelector(state => state.faveStimAids);
+    const faveStimAids = Object.values(faveStimAidsObj);
+
+    const [ heart, setHeart ] = useState(false);
 
     stimAids.sort((a, b) => {
         let aName = a.name.toLowerCase();
@@ -46,6 +51,36 @@ const StimAidsList = () => {
         e.target.src = "https://www.escapeauthority.com/wp-content/uploads/2116/11/No-image-found.jpg";
     };
 
+    const handleFavorite = async (e, stimAidId) => {
+        e.preventDefault();
+
+        if (!heart) {
+            const payload = {
+                user_id: user.id,
+                stim_aid_id: stimAidId
+            };
+
+            const favoriteStimAid = await dispatch(favoriteAStimAid(payload));
+
+            if (favoriteStimAid.ok) setHeart(true);
+        } else {
+            await dispatch(unfavoriteAStimAid());
+            setHeart(false);
+        }
+
+    };
+
+    let favoriteHeart;
+    if (heart) {
+        favoriteHeart = (
+            <i className="fas fa-heart"></i>
+        );
+    } else {
+        favoriteHeart = (
+            <i className="far fa-heart"></i>
+        );
+    }
+
     return (
         <main className='stims-page'>
             <div className='stims-page-banner'>
@@ -68,7 +103,7 @@ const StimAidsList = () => {
                         </div>
                         <div className='chew-reference'>
                             <i className="fas fa-teeth"></i>
-                            <div>Not Chewy to Very Chewy (1-5)</div>
+                            <div>A Little to Very (1-5)</div>
                         </div>
                         <div className='texture-reference'>
                             <i className="far fa-hand-paper"></i>
@@ -140,8 +175,8 @@ const StimAidsList = () => {
                                 </>
                             )}
                             {(user && user.id !== stimAid.owner_id) ?
-                                <button type='button' className='stim-favorite'>
-                                    <i className="far fa-heart"></i>
+                                <button type='button' className='stim-favorite' onClick={(e) => handleFavorite(e, stimAid.id)}>
+                                    {favoriteHeart}
                                 </button>
                                 : null
                             }
