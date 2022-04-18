@@ -12,6 +12,7 @@ from .api.post_routes import post_routes
 from .api.comment_routes import comment_routes
 from .api.special_interest_routes import special_interest_routes
 from .api.stim_aid_routes import stim_aid_routes
+from .api.favorite_stim_aid_routes import favorite_stim_aid_routes
 
 from .seeds import seed_commands
 
@@ -39,6 +40,7 @@ app.register_blueprint(post_routes, url_prefix='/api/posts')
 app.register_blueprint(comment_routes, url_prefix='/api/comments')
 app.register_blueprint(special_interest_routes, url_prefix='/api/special_interests')
 app.register_blueprint(stim_aid_routes, url_prefix='/api/stim_aids')
+app.register_blueprint(favorite_stim_aid_routes, url_prefix='/api/favorite_stim_aids')
 db.init_app(app)
 Migrate(app, db)
 
