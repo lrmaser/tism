@@ -167,3 +167,10 @@
 .stim-delete:hover {
     background-color: rgb(223, 219, 219);
 }
+
+.stim-favorite {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    font-size: 20px;
+}

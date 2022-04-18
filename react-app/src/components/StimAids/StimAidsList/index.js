@@ -139,6 +139,12 @@ const StimAidsList = () => {
                                     </button>
                                 </>
                             )}
+                            {(user && user.id !== stimAid.owner_id) ?
+                                <button type='button' className='stim-favorite'>
+                                    <i className="far fa-heart"></i>
+                                </button>
+                                : null
+                            }
                         </div>
                     </div>
                 ))}
