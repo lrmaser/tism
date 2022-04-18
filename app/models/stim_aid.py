@@ -1,5 +1,4 @@
 from .db import db
-from .user_stim_aid import favorite_stim_aids
 
 
 class StimAid(db.Model):
@@ -16,7 +15,7 @@ class StimAid(db.Model):
     consistency_rating = db.Column(db.Integer)
 
     owner = db.relationship('User', back_populates='owned_stim_aids')
-    users = db.relationship('User', secondary=favorite_stim_aids, back_populates='stim_aids')
+    favorite_stim_aids = db.relationship('FavoriteStimAid', back_populates='stim_aid')
 
     def to_dict(self):
         return {
