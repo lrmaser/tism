@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 
 import { getStimAids, deleteStimAid } from '../../../store/stim_aid';
+import { getFaveStimAids } from '../../../store/favorite_stim_aid';
 import EditStimAidModal from '../EditStimAidForm';
+import FavoriteButton from '../FavoriteButton';
 import './StimAidsList.css';
 
 const StimAidsList = () => {
@@ -26,6 +28,7 @@ const StimAidsList = () => {
 
     useEffect(() => {
         dispatch(getStimAids());
+        dispatch(getFaveStimAids());
     }, [dispatch]);
 
     const handleClick = (e) => {
@@ -68,7 +71,7 @@ const StimAidsList = () => {
                         </div>
                         <div className='chew-reference'>
                             <i className="fas fa-teeth"></i>
-                            <div>Not Chewy to Very Chewy (1-5)</div>
+                            <div>A Little to Very (1-5)</div>
                         </div>
                         <div className='texture-reference'>
                             <i className="far fa-hand-paper"></i>
@@ -138,6 +141,9 @@ const StimAidsList = () => {
                                         <i className="fas fa-trash-alt"></i>
                                     </button>
                                 </>
+                            )}
+                            {(user && user.id !== stimAid.owner_id) && (
+                                <FavoriteButton stimAid={stimAid} />
                             )}
                         </div>
                     </div>

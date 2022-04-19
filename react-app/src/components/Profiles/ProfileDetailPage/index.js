@@ -5,6 +5,7 @@ import moment from 'moment';
 
 import { getProfile } from '../../../store/profile';
 import { getStimAids } from '../../../store/stim_aid';
+import { getFaveStimAids } from '../../../store/favorite_stim_aid';
 import EditProfileModal from '../EditProfileForm';
 import SpecialInterestsList from '../../SpecialInterests/SpecialInterestsList';
 import SpecialInterestForm from '../../SpecialInterests/SpecialInterestForm';
@@ -19,10 +20,14 @@ const ProfileDetailPage = () => {
     const stimAidsObj = useSelector(state => state.stimAids);
     const stimAidsArr = Object.values(stimAidsObj);
     const stimAids = stimAidsArr.filter(stimAid => stimAid.owner_id === +id);
+    const faveStimAidsObj = useSelector(state => state.faveStimAids);
+    const faveStimAidsArr = Object.values(faveStimAidsObj);
+    const faveStimAids = faveStimAidsArr.filter(stimAid => stimAid.user_id === +id);
 
     useEffect(() => {
         dispatch(getProfile(id));
         dispatch(getStimAids());
+        dispatch(getFaveStimAids());
     }, [dispatch, id]);
 
     const handleImage = (e) => {
@@ -100,6 +105,11 @@ const ProfileDetailPage = () => {
                         {stimAids?.map(stimAid => (
                             <div className='profile-stim' key={stimAid.id}>
                                 <img src={stimAid.image_url} alt="Stim Aid"></img>
+                            </div>
+                        ))}
+                        {faveStimAids?.map(fave => (
+                            <div className='profile-stim' key={fave.id}>
+                                <img src={fave.stim_aid.image_url} alt="Stim Aid"></img>
                             </div>
                         ))}
                     </div>
