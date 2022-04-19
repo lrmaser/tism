@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 
 import { getStimAids, deleteStimAid } from '../../../store/stim_aid';
+import { getFaveStimAids } from '../../../store/favorite_stim_aid';
 import EditStimAidModal from '../EditStimAidForm';
 import FavoriteButton from '../FavoriteButton';
 import './StimAidsList.css';
@@ -27,6 +28,7 @@ const StimAidsList = () => {
 
     useEffect(() => {
         dispatch(getStimAids());
+        dispatch(getFaveStimAids());
     }, [dispatch]);
 
     const handleClick = (e) => {
