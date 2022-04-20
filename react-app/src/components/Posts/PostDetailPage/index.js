@@ -57,6 +57,8 @@ const PostDetailPage = ({ profile }) => {
                 <div className='post-detail-body'>
                     <p>{post?.body}</p>
                 </div>
+                <div className='post-comments-header'>Replies</div>
+                <CommentsList />
                 {user
                     ?   <div className='comment-form-container'>
                             <div className='comment-form-user'>
@@ -73,8 +75,6 @@ const PostDetailPage = ({ profile }) => {
                         </div>
                     : null
                 }
-                <div className='post-comments-header'>Replies</div>
-                <CommentsList />
             </div>
             <div className='post-detail-right'>
                 <div className='post-user-info'>
