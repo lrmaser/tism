@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams, Link } from "react-router-dom";
 import moment from 'moment';
@@ -13,6 +13,7 @@ import './PostDetailPage.css';
 const PostDetailPage = ({ profile }) => {
     const dispatch = useDispatch();
     const history = useHistory();
+    const formRef = useRef();
     const { id } = useParams();
 
     const user = useSelector(state => state.session.user);
@@ -22,6 +23,10 @@ const PostDetailPage = ({ profile }) => {
         dispatch(getPost(id));
         dispatch(getComments());
     }, [dispatch, id]);
+
+    const handleJoinConversation = () => {
+        formRef.current.scrollIntoView({ behavior: 'smooth' });
+    };
 
     const handleDelete = async (e) => {
         e.preventDefault();
@@ -57,10 +62,15 @@ const PostDetailPage = ({ profile }) => {
                 <div className='post-detail-body'>
                     <p>{post?.body}</p>
                 </div>
+                <div className='join-conversation'>
+                    <span onClick={handleJoinConversation}>
+                        <i>Click here to join the conversation!</i>
+                    </span>
+                </div>
                 <div className='post-comments-header'>Replies</div>
                 <CommentsList />
                 {user
-                    ?   <div className='comment-form-container'>
+                    ?   <div className='comment-form-container' ref={formRef}>
                             <div className='comment-form-user'>
                                 {profile?.profile_image ?
                                     <img

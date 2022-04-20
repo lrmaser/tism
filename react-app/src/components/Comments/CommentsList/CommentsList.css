@@ -20,8 +20,9 @@
 }
 
 .comment-contents {
-    border-bottom: 3px solid rgb(235, 233, 233);
-    border-left: 3px solid rgb(235, 233, 233);
+    border-bottom-left-radius: 4px;
+    border-bottom: 2px solid rgb(235, 233, 233);
+    border-left: 2px solid rgb(235, 233, 233);
     margin-left: -16px;
     padding-left: 24px;
     width: 100%;
