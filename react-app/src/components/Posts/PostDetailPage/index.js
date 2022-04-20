@@ -24,10 +24,6 @@ const PostDetailPage = ({ profile }) => {
         dispatch(getComments());
     }, [dispatch, id]);
 
-    const handleJoinConversation = () => {
-        formRef.current.scrollIntoView({ behavior: 'smooth' });
-    };
-
     const handleDelete = async (e) => {
         e.preventDefault();
 
@@ -61,11 +57,6 @@ const PostDetailPage = ({ profile }) => {
                 </div>
                 <div className='post-detail-body'>
                     <p>{post?.body}</p>
-                </div>
-                <div className='join-conversation'>
-                    <span onClick={handleJoinConversation}>
-                        <i>Click here to join the conversation!</i>
-                    </span>
                 </div>
                 <div className='post-comments-header'>Replies</div>
                 <CommentsList />

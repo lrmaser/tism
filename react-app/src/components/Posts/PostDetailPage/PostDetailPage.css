@@ -23,26 +23,6 @@
     margin: 0;
 }
 
-.join-conversation {
-    align-items: center;
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: 1fr auto 1fr;
-    margin: 75px 0 50px 0;
-    text-align: center;
-}
-
-.join-conversation:after,
-.join-conversation:before {
-    border-bottom: 1px solid black;
-    content: " ";
-    display: block;
-}
-
-.join-conversation span {
-    cursor: pointer;
-}
-
 .comment-form-container {
     display: flex;
 }
