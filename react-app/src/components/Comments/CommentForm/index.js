@@ -39,6 +39,9 @@ const CommentForm = () => {
                     name='body'
                     value={body}
                     onChange={updateBody}
+                    onKeyPress={(e) => {
+                        if (e.charCode === 13) handleSubmit(e);
+                    }}
                     placeholder='Write your comment'
                     rows={1}
                     required
