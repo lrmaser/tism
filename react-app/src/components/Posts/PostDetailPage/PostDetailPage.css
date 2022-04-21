@@ -7,6 +7,13 @@
     width: 75%;
 }
 
+.post-detail-post {
+    border: 2px solid rgb(235, 233, 233);
+    border-radius: 4px;
+    min-height: 200px;
+    padding: 20px;
+}
+
 .post-detail-title h1 {
     line-height: 40px;
     margin: 0;
@@ -15,7 +22,7 @@
 
 .post-detail-body {
     line-height: 24px;
-    margin: 20px 0 40px 0;
+    margin: 20px 0;
     word-break: break-word;
 }
 
@@ -42,13 +49,19 @@
     margin-top: 24px;
 }
 
+.post-no-comments {
+    padding: 20px;
+    text-align: center;
+}
+
 .post-detail-right {
     margin-left: 50px;
     width: 25%;
 }
 
+
 .post-user-info {
-    border: 1px solid rgb(235, 233, 233);
+    border: 2px solid rgb(235, 233, 233);
     border-radius: 4px;
     padding: 20px;
 }

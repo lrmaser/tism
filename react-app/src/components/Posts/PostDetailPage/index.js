@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams, Link } from "react-router-dom";
 import moment from 'moment';
@@ -13,10 +13,14 @@ import './PostDetailPage.css';
 const PostDetailPage = ({ profile }) => {
     const dispatch = useDispatch();
     const history = useHistory();
+    const formRef = useRef();
     const { id } = useParams();
 
     const user = useSelector(state => state.session.user);
     const post = useSelector(state => state.posts[id]);
+    const commentsObj = useSelector(state => state.comments);
+    const commentsArr = Object.values(commentsObj);
+    const comments = commentsArr.filter(comment => comment.post_id === +id);
 
     useEffect(() => {
         dispatch(getPost(id));
@@ -51,14 +55,23 @@ const PostDetailPage = ({ profile }) => {
     return (
         <main className='post-detail-page'>
             <div className='post-detail-left'>
-                <div className='post-detail-title'>
-                    <h1>{post?.title}</h1>
+                <div className='post-detail-post'>
+                    <div className='post-detail-title'>
+                        <h1>{post?.title}</h1>
+                    </div>
+                    <div className='post-detail-body'>
+                        <p>{post?.body}</p>
+                    </div>
                 </div>
-                <div className='post-detail-body'>
-                    <p>{post?.body}</p>
-                </div>
+                <div className='post-comments-header'>Replies</div>
+                {!comments?.length ?
+                    <div className='post-no-comments'>
+                        No one has replied to this post yet!
+                    </div>
+                    : <CommentsList />
+                }
                 {user
-                    ?   <div className='comment-form-container'>
+                    ?   <div className='comment-form-container' ref={formRef}>
                             <div className='comment-form-user'>
                                 {profile?.profile_image ?
                                     <img
@@ -73,8 +86,6 @@ const PostDetailPage = ({ profile }) => {
                         </div>
                     : null
                 }
-                <div className='post-comments-header'>Replies</div>
-                <CommentsList />
             </div>
             <div className='post-detail-right'>
                 <div className='post-user-info'>
